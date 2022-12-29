@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        윈도우 전역 객체 소속의 메서드
+    </h1>
+    <ul>
+        <li>
+            open(), close().. : 윈도우 창 관련 메서드
+        </li>
+        <li>
+            prompt(), alert() , comfirm() : 사용자 인터페이스 메서드
+        </li>
+        <li>
+            setTimeout(), setInterval() : 실행시간 지정 메서드
+        </li>
+        <li>
+            window.open("url","window name", "options(size, scroll.....)")
+        </li>
+    </ul>
+    <button type="button" onclick="openwin()">열기</button>
+    <button type="button" onclick="closewin()">닫기</button>
+    <button type="button" onclick="checkwin()">체크</button>
+    <h1 id="h11"></h1>
+    <button type="button" onclick="openAt()">경고!</button>
+    <button type="button" onclick="openpt()">입력</button>
+    <button type="button" onclick="opencm()">확인!</button>
+    
+    <h1 id="h12"></h1>
+    <script>
+        let win;
+
+        function openwin(){
+            win = window.open("","win","width = 400, height =400");
+        }
+
+        function closewin(){
+            if(win){
+                win.close();
+            }
+        }
+
+        function checkwin(){
+            if(!win){
+                document.querySelector("#h11").innerHTML = `한번도 열리지 않았습니다.`;
+            }else{
+                if(win.closed){
+                    document.querySelector("#h11").innerHTML = `닫혔습니다.`;
+                }else{
+                    document.querySelector("#h11").innerHTML = `닫히지 않았습니다.`;
+                }
+            }
+        }
+
+        function openAt(){
+            window.alert("지금도 자주 쓰이는 alert기능!");
+        }
+
+        function openpt(){
+            let info = window.prompt("값을 입력해주세요","초기값");
+            if(info != null){
+                document.querySelector("#h12").innerHTML = info + "을 입력했습니다.";
+            }
+        }
+
+        function opencm(){
+            let choice = window.confirm("선택하세요!");
+            if(choice==true){
+                document.querySelector("#h12").innerHTML = "확인선택";
+            }else{
+                document.querySelector("#h12").innerHTML = "취소선택";
+            }
+
+        }
+
+
+    </script>
+    
+</body>
+</html>

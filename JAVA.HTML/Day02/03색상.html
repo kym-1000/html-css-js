@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>색속성</title>
+    <!-- 
+        색상관련 속성 
+        - color : 글자색
+        backguround-color : 배경색
+        border-color : 테두리색
+        색상 지정 방법
+        - 이미 지정된 이름을 사용하는 방법 : red ,blue green
+        - 색상코드를 사용하는 방법 : #ff0000
+        - rgb 코드 사용하는 방법 : rgb(255,0,0)
+        - rgba코드 사용하는 방법 : rgba(255,0,0,0,5) 
+        - a : 투명도 값을 추가 0~1
+    -->
+    <style>
+        /* 전체 div 태그에 폰트 사이즈 : 20px , 폰트-웨이트 700 */
+        div{
+            font-size: 20px;
+            
+        }
+        .color{
+            color: darkviolet;
+        }
+
+        .bgcolor{
+            background-color: blueviolet;
+        }
+
+        .bordercolor{
+            border-style: dashed;
+            border-color: blue;
+        }
+
+        /* bordercolor 클래스에 마우스를 올리면 배경색이 노랑이 되도록 설정  */
+        .bordercolor:hover{
+            background-color: rgb(173, 171, 189);
+        }
+        p{
+            font-size: 20px;
+            color: chartreuse;
+            
+        }
+        p:nth-of-type(2){
+            color: chocolate;
+        }
+
+        p:nth-of-type(3){
+            color: rgb(161, 58, 128);
+        }
+
+        .color,.bordercolor{
+            font-weight: 700;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="color">글자색 변경</div>
+    <div class="bgcolor">배경색 변경</div>
+    <div class="bordercolor">테두리색 변경</div>
+    <!-- p태그 3개 생성 -->
+    <p class="name">홍길동</p>
+    <p class="name1">이순신</p>
+    <p class="name">선조</p>
+</body>
+</html>

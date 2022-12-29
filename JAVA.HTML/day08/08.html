@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별찍어보기</title>
+</head>
+<body>
+    <h1>높이(양의정수)를 입력받으면 직각 삼각형 모양으로 별찍기</h1>
+
+    높이 입력 <input type="text" id="높이">
+    <button type="button" onclick="star()">별찍기</button>
+    <h3 id="print"></h3>
+
+    <script>
+
+    function star(){
+        let star1 = '';
+        let num1 = "";
+        let n1 = Number(document.getElementById('높이').value);
+        for(let i=0;i<n1;i++){
+            star1 += "*";
+            num1 += star1 + '\n';
+        }
+            document.getElementById("print").innerText= `${num1}`;
+        }
+       
+    </script>
+    
+</body>
+</html>

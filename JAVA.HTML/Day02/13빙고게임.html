@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 
+        table = 표 만들때 사용
+        table 다른 태그와 조합해서 만든다.
+        tr : 한 행을 의미
+        td/th : 한 열을 의미(한칸)
+        td : 왼쪽정렬, 일반글씨 = 일반 내용 
+        th : 가운데정렬, 굵은 글씨 = 제목 (머리글)
+    -->
+
+    <!-- 3행 4열 테이블 생성 
+         tr 3개 td 4개씩 *3개 => 12개 필요 
+    -->
+
+    <style>
+
+        td{
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        td.bing{
+            color: rgb(255, 157, 0);
+            background-color: rgb(4, 0, 255);
+        }
+
+        td.bing:hover{
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+
+        
+
+    </style>
+
+
+
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td class="bing">9</td>
+            <td>6</td>
+            <td>11</td>
+            <td>15</td>
+            <td class="bing">25</td>
+        </tr>
+        <tr>
+            <td class="bing">3</td>
+            <td>24</td>
+            <td class="bing">1</td>
+            <td>12</td>
+            <td class="bing">10</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>16</td>
+            <td>8</td>
+            <td>14</td>
+            <td class="bing">21</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>19</td>
+            <td class="bing">7</td>
+            <td>22</td>
+            <td class="bing">4</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>5</td>
+            <td class="bing">13</td>
+            <td>17</td>
+            <td class="bing">18</td>
+        </tr>
+    </table>
+    
+</body>
+</html>

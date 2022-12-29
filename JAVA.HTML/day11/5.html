@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        자료구조 Map : key / value 형태로 데이터 한개를 배열로 만들어 다시 배열에 저장하는 방식 
+    </h1>
+    <ul>
+        <li>
+            중첩 구조이기 때문에 key의 중복확인이 필수 
+        </li>
+        <li>
+            객체를 배열화 시킨 구조
+        </li>
+        <li>
+            map.size : 맵의 데이터 수 리턴 
+        </li>
+        <li>
+            map.set(key,value) : 데이터 삽입
+        </li>
+        <li>
+            map.get(key) : key에 해당하는 value를 조회
+        </li>
+        <li>
+            map.delete(key) : key값으로 해당 데이터 제거 
+        </li>
+        <li>
+            map.has(key) : 해당 key값의 데이터가 있는지 true / false로 리턴
+        </li>
+        <li>
+            map.clear() : 모든 데이터 제거 
+        </li>
+        <li>
+            map.keys(),map.values(), map.entries() : map의 값을 이터레이터로 리턴
+        </li>
+        <li></li>
+    </ul>
+
+    <script>
+        const MyMap = new Map();
+        MyMap.set("html",86);
+        MyMap.set("css",90);
+        MyMap.set("js",87);
+        console.log(MyMap);
+        console.log(MyMap.size);
+        console.log(MyMap.get("js"));
+        MyMap.delete("js");
+        console.log(MyMap.has("js"));
+        MyMap.forEach(function(v,k,s){
+            console.log(k,v);
+        });
+
+        // console.log("===============");
+        // MyMap.entries().forEach(function(v,k,s){
+        //     console.log(k,v);
+        // });
+
+        for(const iter of MyMap.entries()){
+            for(const key in iter){
+                console.log(key,iter[key]);
+            }
+        }
+
+
+    // 점수합계
+    let sum = 0;   
+
+    for(const iter of MyMap.values()){
+        sum += iter;
+    }
+
+    console.log(sum);
+    console.log(sum/MyMap.size);
+    </script>
+
+
+    
+</body>
+</html>

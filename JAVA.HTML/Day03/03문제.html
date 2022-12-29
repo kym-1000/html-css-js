@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색창예제</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    
+
+    <style>
+        .search-left{
+            width: 300px;
+            height: 50px;
+            border: 1px solid #19ce60;
+            float: left;
+            position:relative;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .search-left::after{
+            clear: both;
+            display: block;
+        }
+
+        .search-left>input{
+            border:none;
+            width: 290px;
+            height: 40px;
+            position:absolute;
+            TOP: 5PX;
+            left: 5PX;
+            outline:none;
+        }
+
+        /* input:focus {
+            outline:none;
+        } */
+
+        .search-bth{
+            width: 52px;
+            height: 52px;
+            border: none;
+            background-color: #19ce60;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .search-bth>.material-symbols-outlined{
+            color: white;
+            font-size: large;
+        }
+
+        .search-left>.material-symbols-outlined{
+            position:absolute;
+            top: 25%;
+            left: 260px;
+            color: rgb(132, 119, 119);
+        }
+
+        
+
+    </style>
+
+
+</head>
+<body>
+    <div class="search-box">
+        <div class="search-left">
+            <input type="text">
+            <!-- 키보드아이콘 -->
+            <span class="material-symbols-outlined">
+                keyboard
+                </span>
+        </div>
+        <button class="search-bth" type="submit">
+        <!-- 돋보기 아이콘 -->
+        <span class="material-symbols-outlined">
+            search
+            </span>
+        </button>
+    </div>
+
+
+    
+</body>
+</html>

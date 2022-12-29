@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        배열의 순환 할수 있는 구조를 이용하여 특정 기능을 할수 있는 메서드가 제공됨
+    </h1>
+
+    <ul>
+        <li>
+            array.forEach(callback function) : 일반 반복문과 유사한 형태로 배열 탐색
+            array.forEach(function(element_value, index, array)){
+                code;
+            }
+        </li>
+        <li>
+            array.map(callback function) : forEach를 수행하면서 연산결과를 리턴하여 새로운 배열을 만들어줌
+        </li>
+        <li>
+            array.filter(callback function) : map처럼 수행 + 비교연산의 결과에서 true에 해당하는 값만 필터링 하여 리턴함
+        </li>
+    </ul>
+
+    <script>
+        const myarr = [12,3,46,31,17,'s','p','g'];
+        myarr.forEach(function(elem_value, index, self){
+            console.log(index,elem_value,self[index]);
+        });
+
+        console.log("============");
+        myarr.forEach(function(elem_value,index){
+            console.log(index,elem_value);
+        });
+
+        console.log("-===========");
+        myarr.forEach(function(elem_value){
+            console.log(elem_value);
+        });
+
+        //  메서드 명이 같아도 파라미터의 형태가 달리하면 중복으로 사용할수 있게 만드는 기법 
+        //  메서드 오버로딩 이라고 한다
+
+        console.log("---------------------");
+
+        const strArr = ['a','b','c','d','f','e'];
+
+
+        // foreach를 이용하여 인덱스 밸류값 출력하시오
+
+        strArr.forEach(function(elem_value,index){
+            console.log(index,elem_value);
+        });
+
+
+        console.log("_____________________________");
+
+        function printNumber(el,i,arr){
+            console.log(i,el);
+        }
+
+        myarr.forEach(printNumber);
+
+
+        function printNumber2(el,i,arr){
+            return `${i} : ${el} : ${arr[i]}`;
+        }
+
+       const newarr = myarr.map(printNumber2);
+       console.log(newarr);
+
+       const newarr2 = myarr.map(function(el,i){
+            return `${i} : ${el}`;
+       })
+
+       console.log(newarr2);
+
+       // numarr를 위의 맵 형태로 출력  
+
+       console.log("---------------  필터 인보크 콜백 펑션-----");
+
+       const numNewArr = myarr.filter(function(el,i,arr){
+            return isNaN(el);  // 넘버가 아닌 값만 출력
+       })
+
+       // !isNaN 숫자가 아닌값 isNaN 숫자값
+
+       console.log(numNewArr);
+    
+       const f = fruits.keys();
+       console.log(f);
+
+       for(const a of f){
+        console.log(typeof a);
+        console.log(a);
+       }
+
+       const obj = {
+        
+       }
+
+
+
+    </script>
+    
+</body>
+</html>

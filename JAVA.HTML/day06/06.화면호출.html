@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>합계구하기</title>
+</head>
+<body>
+    <form action="" id="myform">
+        <fieldset>
+            <legend>성적확인</legend>
+            이름 : <input type="text" id="name"><br>
+            국어 : <input type="text" id="kor"><br>
+            영어 : <input type="text" id="eng"><br>
+            수학 : <input type="text" id="math"><br>
+            <button type="button" id="submit" onclick="click1()">계산</button>
+        </fieldset>
+    </form>
+
+    <h3 id="sum"></h3>
+    <script>
+        function click1(){
+            let name = document.getElementById("name").value;
+            let kor = document.getElementById("kor").value;
+            let eng = document.getElementById("eng").value;
+            let math = document.getElementById("math").value;
+            let sum = 0;
+            let avg = 0;
+            let hap = 0;
+            let rank = 0;
+            // 만약에 점수가 0~100사이에 값이 아니라면 경고창 
+            // (alert : 경고창 )
+            if(kor<0 || kor>100 || eng<0 || eng>100 || math<0 || math>100){
+                alert("0~100사이의 값을 입력해주세요.");
+            }else{
+                kor = parseInt(kor);  // Number(국어)  둘다 가능  number는 실수도 가능
+                eng = parseInt(eng);  // Number(국어) 
+                math = parseInt(math);  // Number(국어)
+                sum = kor + eng + math;
+                avg = Math.round((sum/3)*10)/10;
+                
+
+                if(avg>60){
+                    hap = "합격";
+                }else{
+                    hap = "불합격";
+                }
+
+                if(avg>90){
+                    rank = "A";
+                }else if(avg>80){
+                    rank = "B";
+                }else if(avg>70){
+                    rank = "C";
+                }else if(avg>60){
+                    rank = "D";
+                }else{
+                    rank = "F";
+                }
+            }
+            
+            // 결과를 표현해야하는 위치에 결과를 출력
+            // 숫자의 결과가 
+            document.getElementById("sum").innerText=
+            `이름 : ${name}, 합계 ${sum} 평균 ${avg} 합격여부 ${hap}  등급 ${rank}`;
+        }
+    </script>
+    
+</body>
+</html>

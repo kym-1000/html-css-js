@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a tag</title>
+</head>
+<body>
+   <!--a태그 - 다른 페이지로 이동하게 하는 태그, 다운로드 가능하게 하는 태그 
+            - 쌍태그 태그 안에 있는 글자를 클릭하면 이동하게 됨.
+            -href 속성 
+                - 이동할 url, 값이 없다면 현재 페이지로 새로고침 
+                - 속성값에 // http:// url로 인식, 없으면 파일로 인식 
+                - 값에 tel : 핸드폰으로 연결 주로 모바일에서 사용
+                - 값에 mailto : 이메일로 연결
+            - target 속성 : 
+                - _self : 기본값, 현재 화면에서 링크를 새로 연다.
+                - _blank : 새창에서 링크 열결
+                - _parent : 부모창에서 링크 연결
+                    - 결제창처럼 팝업창이 뜨고(자식창) 팝업창의 값을 반영하여 
+                      원래의 (부모)창이 변경될 경우 사용
+                - _top : 최고조상에서 링크를 연결 , 부모가 없다면 (조상이 없다면)
+                  _self 와 동일, 다중 팝업창이 뜰 경우 
+            - download 속성 :
+                - download 속성을 추가하면 해당 파일을 다운로드 함.
+                - href 속성이 파일로 입력되어야 함
+    -->
+
+    <!-- url로 인식하여 현재창에서 네이버 사이트로 연결-->
+    <a href="http://www.naver.com" target="_self">naver</a> <br>
+    <!-- 새창에서 연결-->
+    <a href="http://www.naver.com" target="_blank">naver(새창으로 연결)</a> <br>
+    <!-- 파일로 인식-->
+    <a href="naver.com" target="_blank" >naver</a><br>
+    <!--  -->
+    <a href="01text.html" target="_blank">파일로 인식</a> <br>
+    <!-- 다운로드 -->
+    <a href="01text.html" download="" >다운로드</a> <br>
+    <!-- tel로 연결 -->
+    <a href="tel:+820101011111111">전화문의</a><br>
+    <!-- mailto로 연결 -->
+    <a href="mailto:rhwktlr2@naver.com">메일로 문의하기</a><br>
+    
+</body>
+</html>

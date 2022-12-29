@@ -1,0 +1,85 @@
+@font-face {
+    font-family: CuteFont-Regular;
+    src: url(font2/CuteFont-Regular.ttf);
+ }
+ body {
+    font-family: CuteFont-Regular;
+    background-color: #f0e8d9;
+    color: #58595b;
+ }
+ div {
+    text-align: center;
+ }
+ .header {
+    margin: 75px;
+ }
+ .header > h1 {
+    font-size: 64px;
+ }
+ .header > h3 {
+    font-size: 32px;
+    margin-top: 30px;
+ }
+ .menu {
+    width: 300px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    font-size: 30px;
+ }
+ #sushi {
+    width: 300px; 
+    height: 200px;
+    margin: 0;
+    background-image: url(food/스시.jpg);
+    background-size: 300px 200px; 
+    border-radius: 10px 10px 0px 0px;
+ }
+
+ #hamburger {
+    width: 300px; 
+    height: 200px;
+    margin: 0;
+    background-image: url(food/햄버거.jfif);
+    background-size: 300px 200px;
+    border-radius: 10px 10px 0px 0px;
+ }
+ #chicken {
+    width: 300px; 
+    height: 200px;
+    margin: 0;
+    background-image: url(food/치킨.jpg);
+    background-size: 300px 200px; 
+    border-radius: 10px 10px 0px 0px;
+ }
+ #bibimbab {
+    width: 300px; 
+    height: 200px;
+    margin: 0;
+    background-image: url(food/비빔밥.jfif);
+    background-size: 300px 200px; 
+    border-radius: 10px 10px 0px 0px;
+ }
+ .menu > div > h3 {
+    margin: 0;
+ }
+ .menu div:last-child {
+    padding: 20px;
+ }
+ .menu div > p:first-child {
+    margin-top: 50px;
+    margin-bottom: 20px;
+ }
+ .menu > div > p:last-child {
+    color: blue;
+ }
+ .aa {
+    color: blue;
+    text-decoration: none;
+    font-weight: 700;
+ }
+ p {
+    text-align: left;
+    font-size: 21px;
+ }

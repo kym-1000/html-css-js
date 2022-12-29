@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ko">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="보기port" content="width=device-width, initial-scale=1.0" />
+      <title>목록</title>
+      <script src="https://kit.fontawesome.com/92e616dfba.js" crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+
+      <style>
+         * {
+            margin: 0;
+            padding: 0;
+            color: white;
+         }
+
+         body {
+            /* 안넣으면 div 겹침 발생 */
+            padding-top: 2px;
+            background-image: url(/img/배경화면5.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+         }
+
+         .nav {
+            /* border: 3px solid pink; */
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+           background-color: black;
+            padding: 0px 50px 0px 50px;
+
+            /* 상단 헤더 고정시 필요! */
+            z-index: 1;
+            position: fixed;
+            font-size: 20px;
+            height: 80px;
+
+            width: 97%;
+         }
+         a {
+            text-decoration: none;
+            color: whitesmoke;
+         }
+
+         /* 로고,소개,스토어,커뮤니티 */
+         .leftBar {
+            display: flex;
+         }
+         .menu {
+            display: flex;
+            list-style: none;
+         }
+
+         .menu li {
+            margin-top: 16.5px;
+            padding: 5px 25px;
+         }
+
+         .menu li > a {
+            border-bottom: 3px solid rgba(99, 168, 0, 0);
+            transition: all 0.25s ease-in-out;
+         }
+         .menu li > a:hover {
+            border-bottom: 3px solid rgb(99, 168, 168);
+         }
+
+         .logo {
+            width: 80px;
+            height: 70px;
+            /* border: 3px solid pink; */
+         }
+
+         .logo i {
+            font-size: 55px;
+            padding-top: 4.5px;
+         }
+
+         .searchbox i {
+            font-size: 17px;
+         }
+
+         .searchbox input {
+            font-size: 20px;
+            width: 450px;
+            /* text-decoration: none; */
+            border-radius: 10px;
+            border-color: gray;
+            /* outline-style: none; */
+            color: whitesmoke;
+            transition: all 0.25s ease-in-out;
+         }
+
+         .searchbox input:hover {
+            background-color: rgba(85, 87, 90, 0.904);
+         }
+
+         .searchbox input:focus {
+            outline: none;
+         }
+
+         .searchbox {
+            /* border: 3px solid pink; */
+            margin-left: 260px;
+            width: 500px;
+         }
+
+         .login {
+            width: 30px;
+            /* border: 1px solid red; */
+            font-size: 24px;
+            margin-left: auto;
+         }
+
+         .login > a:hover {
+            font-size: 25px;
+            color: rgb(99, 168, 168);
+         }
+
+         html {
+            font-size: 10px;
+         }
+
+         ul,
+         li {
+            list-style: none;
+         }
+
+         a {
+            text-decoration: none;
+            color: inherit;
+         }
+
+         .board_wrap {
+            width: 1000px;
+            margin: 100px auto;
+         }
+
+         .board_title {
+            margin-bottom: 30px;
+         }
+
+         .board_title strong {
+            font-size: 3rem;
+         }
+
+         .board_title p {
+            margin-top: 5px;
+            font-size: 1.4rem;
+         }
+
+
+         .board_wrap {
+            width: 1000px;
+            margin: 100px auto;
+            background-color: rgb(46, 53, 49);
+            border: none;
+            border-radius: 5px;
+            padding: 50px;
+            font-size: 0px;
+         }
+
+         .bt_wrap a {
+            display: inline-block;
+            min-width: 80px;
+            margin-left: 10px;
+            padding: 10px;
+            border: 1px solid #000;
+            border-radius: 2px;
+            font-size: 1.4rem;
+         }
+
+         .bt_wrap a:first-child {
+            margin-left: 0;
+         }
+
+         .board_list {
+            width: 100%;
+            border-top: 2px solid #000;
+         }
+
+         .board_list > div {
+            border-bottom: 1px solid #ddd;
+            font-size: 0;
+         }
+
+         .board_list > div.top {
+            border-bottom: 1px solid #999;
+         }
+
+         .board_list > div:last-child {
+            border-bottom: 1px solid #000;
+         }
+
+         .board_list > div > div {
+            display: inline-block;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.4rem;
+         }
+
+         .board_list > div.top > div {
+            font-weight: 600;
+         }
+
+         .board_list .num {
+            width: 10%;
+         }
+
+         .board_list .title {
+            width: 60%;
+            text-align: left;
+         }
+
+         .board_list .top .title {
+            text-align: center;
+         }
+
+         .board_list .writer {
+            width: 10%;
+         }
+
+         .board_list .date {
+            width: 10%;
+         }
+
+         .board_list .count {
+            width: 10%;
+         }
+
+         .board_page {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0;
+         }
+
+         .board_page a {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            box-sizing: border-box;
+            vertical-align: middle;
+            border: 1px solid #ddd;
+            border-left: 0;
+            line-height: 100%;
+         }
+
+         .board_page a.bt {
+            padding-top: 10px;
+            font-size: 1.2rem;
+            letter-spacing: -1px;
+         }
+
+         .board_page a.num {
+            padding-top: 9px;
+            font-size: 1.4rem;
+         }
+
+         .board_page a.num.on {
+            border-color: #000;
+            background: #000;
+            color: #fff;
+         }
+
+         .board_page a:first-child {
+            border-left: 1px solid #ddd;
+         }
+
+         .board_view {
+            width: 100%;
+            border-top: 2px solid #000;
+         }
+
+         .board_view .title {
+            padding: 20px 15px;
+            border-bottom: 1px dashed #ddd;
+            font-size: 2rem;
+         }
+
+         .board_view .info {
+            padding: 15px;
+            border-bottom: 1px solid #999;
+            font-size: 0;
+         }
+
+         .board_view .info dl {
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+         }
+
+         .board_view .info dl:first-child {
+            padding-left: 0;
+         }
+
+         .board_view .info dl::before {
+            content: "";
+            position: absolute;
+            top: 1px;
+            left: 0;
+            display: block;
+            width: 1px;
+            height: 13px;
+            background: #ddd;
+         }
+
+         .board_view .info dl:first-child::before {
+            display: none;
+         }
+
+         .board_view .info dl dt,
+         .board_view .info dl dd {
+            display: inline-block;
+            font-size: 1.4rem;
+         }
+
+         .board_view .info dl dd {
+            margin-left: 10px;
+            color: white;
+         }
+
+         .board_view .cont {
+            padding: 15px;
+            border-bottom: 1px solid #000;
+            line-height: 160%;
+            font-size: 1.4rem;
+         }
+
+         .board_write {
+            border-top: 2px solid #000;
+         }
+
+         .board_write .title,
+         .board_write .info {
+            padding: 15px;
+         }
+
+         .board_write .info {
+            border-top: 1px dashed #ddd;
+            border-bottom: 1px solid #000;
+            font-size: 0;
+         }
+
+         .board_write .title dl {
+            font-size: 0;
+         }
+
+         .board_write .info dl {
+            display: inline-block;
+            width: 50%;
+            vertical-align: middle;
+         }
+
+         .board_write .title dt,
+         .board_write .title dd,
+         .board_write .info dt,
+         .board_write .info dd {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 1.4rem;
+         }
+
+         .board_write .title dt,
+         .board_write .info dt {
+            width: 100px;
+         }
+
+         .board_write .title dd {
+            width: calc(100% - 100px);
+         }
+
+         .board_write .title input[type="text"],
+         .board_write .info input[type="text"],
+         .board_write .info input[type="password"] {
+            padding: 10px;
+            box-sizing: border-box;
+         }
+
+         .board_write .title input[type="text"] {
+            width: 80%;
+         }
+
+         .board_write .cont {
+            border-bottom: 1px solid #000;
+         }
+
+         .board_write .cont textarea {
+            display: block;
+            width: 100%;
+            height: 300px;
+            padding: 15px;
+            box-sizing: border-box;
+            border: 0;
+            resize: vertical;
+         }
+
+         .serr {
+            text-align: right;
+         }
+
+         .bt_wrap {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0;
+         }
+
+         .bt_wrap a.on {
+            background-color: green;
+            border: 0;
+            color: #fff;
+         }
+
+         .bt_wrap a.on:hover {
+            background-color: white;
+            color: #000;
+         }
+
+         #writer {
+            color: #000;
+            height: 25px;
+         }
+
+         #option {
+            color: #000;
+            height: 31px;
+         }
+
+         #btn {
+            background-color: green;
+            border: 0;
+            color: #fff;
+            width: 40px;
+            height: 31px;
+            border: 0;
+            border-radius: 2px;
+         }
+
+         #btn:hover {
+            background-color: white;
+            color: #000;
+         }
+
+         .foot {
+
+        text-align: center;
+        width: 1000px;
+        height: 370px;
+        margin: auto;
+        padding-top: 20px;
+        font-size: 12px;
+        color: gray;
+        }
+
+        .foot-info>a{
+            color: gray;
+        }
+
+        .foot-icons {
+            display: flex;
+            
+            font-size: 20px;
+            padding-bottom: 10px;
+            
+            justify-content: center;
+        }   
+
+        .foot-icon{
+            
+            width: 100px;
+            
+        }
+
+        .foot-icon:hover {
+            
+            font-size: 25px;
+            color: rgb(99, 168, 168);
+        }
+         
+      </style>
+   </head>
+   <body>
+      <!-- 고정 헤드 -->
+
+      <div class="nav" id="navBar">
+         <div class="leftBar">
+            <div class="logo">
+               <a href="/6조웹사이트/메인-다시.html">
+                  <i class="fa-solid fa-gamepad"></i>
+               </a>
+            </div>
+
+            <div class="menu">
+               <div class="menus">
+                  <li><a href="/세프/인트로.HTML">소개</a></li>
+               </div>
+               <div class="menus">
+                  <li><a href="/세프/store.html">스토어</a></li>
+               </div>
+               <div class="menus">
+                  <li><a href="/세프/목록.html">커뮤니티</a></li>
+               </div>
+            </div>
+         </div>
+
+         <!-- <form action="팝업창.html"> -->
+         <div class="searchbox">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="STORE SEARCH" id="searchWord" onkeyup="search()" />
+         </div>
+         <!-- </form> -->
+
+         <div class="login">
+            <a href="">
+               <i class="fa-regular fa-circle-user"></i>
+            </a>
+         </div>
+      </div>
+
+      <div class="board_wrap">
+         <div class="board_title">
+            <strong><a href="목록.html" class="bt first">커뮤니티</a></strong>
+            <span id="gif"></span>
+         </div>
+         <div class="board_list_wrap">
+            <div class="board_list">
+               <div class="top">
+                  <div class="num">번호</div>
+                  <div class="title">제목</div>
+                  <div class="writer">글쓴이</div>
+                  <div class="date">작성일</div>
+                  <div class="count">조회수</div>
+               </div>
+               <div id="1"></div>
+               <div id="2"></div>
+               <div id="3"></div>
+               <div id="4"></div>
+               <div id="5"></div>
+               <div id="6"></div>
+               <div id="7"></div>
+               <div id="8"></div>
+               <div id="9"></div>
+               <div id="10"></div>
+            </div>
+            <div class="board_page">
+               <a href="#" class="bt first"><<</a>
+               <a href="#" class="bt prev"><</a>
+               <a href="#" class="bt prev"></a>
+               <a href="#" class="num on">1</a>
+               <a href="#" class="num">2</a>
+               <a href="#" class="num">3</a>
+               <a href="#" class="num">4</a>
+               <a href="#" class="num">5</a>
+               <a href="#" class="bt next"></a>
+               <a href="#" class="bt next">></a>
+               <a href="#" class="bt last">>></a>
+            </div>
+            <div class="bt_wrap">
+               <a href="글작성.html" class="on">등록</a>
+               <form action="" class="serr">
+                  <input type="text" id="writer" />
+                  <select name="writer1" id="option">
+                     <option value="" selected style="color: #000">글쓴이</option>
+                     <option value="" style="color: #000">제목</option>
+                  </select>
+                  <button type="button" onclick="search1()" id="btn">검색</button>
+               </form>
+            </div>
+         </div>
+      </div>
+
+       <!-- 하단 -->
+    <div class="foot">
+        <div class="foot-icons">
+            <div>
+                <a href="http://www.youtube.com"> <i class="fa-brands fa-youtube foot-icon"></i></a>
+            </div>
+            <div>
+                <a href="https://ko-kr.facebook.com/"><i class="fa-brands fa-facebook foot-icon"></i></a>
+            </div>
+            <div>
+                <a href="https://www.instagram.com/t"><i class="fa-brands fa-instagram foot-icon"></i></a>
+            </div>
+            <div>
+                <a href="https://twitter.com/"><i class="fa-brands fa-twitter foot-icon"></i></a>
+            </div>
+        </div>
+        <hr>
+        <p class="foot-info"><br>
+            <a href="#">인재채용</a> | <a href="#">회사소개</a> | <a href="#">고객지원</href=> | <a href="#">문의 등록</a> | <a
+                    href="#">보도자료</a> | <a href="#">API</a>
+                <br><br>
+                지금 바로 즐겨보세요 <a href="#-login or Main">Sixmans-Team
+            </a>
+        </p>
+
+        <pre class="foot-info">
+            <!-- 2022 Sixmans-Team, Inc. 모든 권리는 어딘가에 있습니다.
+            여기서 언급된 다른 모든 
+            <b>상표</b>는 각 소유권자들의 자산입니다. -->
+            <!-- Sixmans-Team -->
+            주소: 인천광역시 남동구 인주대로 593 엔타스빌딩 12층
+            대표 번호: 2588-2588 | 팩스 번호: (032)812-1246 | 이메일 Sixmans-Teamsuppot@ezen.co.kr
+            사업자 등록 번호:516-86-00232 | 대표 : DongEun-JO | 개인정보 보호책임자:6조 전체
+       
+            © 2022, Sixmans-Team, Inc. All Rights Reserved. sixmans, Sixmans-Team, Sixmans-Team 로고, Fortnite, Fortnite 로고, Unreal,
+            Unreal Engine, Unreal Engine 로고, Unreal Tournament, Unreal Tournament 로고의 모든 저작권은 Sixmans-Team, Inc.에 있으며, 이는 미국 및
+            그 외 국가에 모두 해당됩니다. 기타 브랜드 또는 제품 이름은 해당 소유자의 상표입니다. 미국 외 거래는 Sixmans-Team International, S.à r.l.을 통해 이뤄집니다.
+            
+            <!-- 개인정보 처리방침|법률 관련 문서|이용 약관|쿠키정보 처리방침|쿠키 설정 -->
+        </pre>
+    </div>
+
+    <script>
+      // 게시판에 들어가자 마자 로컬스토리지의 값들을 출력시켜주는 메인함수 실행
+      title11();
+
+      // 함수가 실행되면 for문을 통해 각 스토리지의 저장된 키값과 객체를 불러와 
+      // 미리 만들어진 page-number에 하나하나 출력
+      // 이때 출력된 게시글을 누를경우 해당 인덱스 번호를 게시글로 보낼수 있도록  <a href="게시글.html?${i}"> 포함시킴
+      function title11() {
+         for (let i = 0; i < localStorage.length; i++) {
+            let tit = window.localStorage.key(i); 
+            let obj = JSON.parse(localStorage.getItem(tit)); 
+            document.getElementById(`${i + 1}`).innerHTML = `
+            <div class="num"style="font-size:15px;  font-weight: bold; ">${i + 1}</div>
+            <div class="title" style="font-size:15px;  font-weight: bold; "><a href="게시글.html?${i}">${obj.title}.</a></div>
+            <div class="writer"style="font-size:15px;  font-weight: bold; ">${obj.writer}</div>
+            <div id="날짜임${i + 1}" style="font-size:15px;  font-weight: bold; ">&emsp;${obj.today}</div>
+            <div class="count"style="font-size:15px;  font-weight: bold; ">&emsp;${obj.cnt}</div>
+            `;
+         }
+      }
+
+      // 검색하는 기능을 가진 함수 글쓴이만 찾기 가능
+      // 아무것도 입력하지 않았을 경우 브라우저의 동작을 정지시키고 팝업창 출력
+      function search1() {
+         let input = document.getElementById("writer").value;
+         if (input.length == 0) {
+            event.preventDefault();
+            return Swal.fire({
+                     icon: 'error',                       
+                     title: '검색어를 입력해주세요!',    
+                     text: '글쓴이를 입력해주세요!.', 
+                     background: 'black',
+                     color: 'white',
+                  });
+         }
+
+      //  입력받은 input이랑 동일한 글쓴이가 있을경우 출력 나머지는 삭제(로컬스토리지에서 삭제된게 아니라 보이는 화면에서만 삭제)
+         for (let i = 0; i < localStorage.length; i++) {
+            let tit = window.localStorage.key(i);
+            let obj = JSON.parse(localStorage.getItem(tit));
+            if (obj.writer.includes(input)) {
+               document.getElementById(`${i + 1}`).innerHTML = `<div class="num"style="font-size:15px;  font-weight: bold; ">${i + 1}</div>
+                 <div class="title" style="font-size:15px;  font-weight: bold; "><a href="게시글.html?${i}">${obj.title}.</a></div>
+                 <div class="writer"  style="font-size:15px;  font-weight: bold; color:yellow;" >${obj.writer}</div>
+                 <div id="날짜임${i + 1}"style="font-size:15px;  font-weight: bold; ">${obj.today}</div>
+                 <div class="count"style="font-size:15px;  font-weight: bold; ">${obj.cnt}</div>`;
+            } else {
+               let div = document.getElementById(`${i + 1}`);
+               div.remove();
+            }
+         }
+      }
+   </script>
+   </body>
+</html>

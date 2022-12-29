@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- /* 
+                get은 값을 얻어올때 set는 값을 변경할때
+                getFullyear() : 년도추출
+                getMonth() : 월 0~11 +1
+                getDate() : 일
+                getDay() : 요일 0~6 일~토
+                getHour() : 시간
+                getMinutes() : 분
+                getSecond() : 초
+            */ -->
+    <!-- 날짜의 요일을 알려주는 값-->
+    <!-- input 날짜를 입력받아 입력받은 날짜의 요일을 같이 출력
+        2022-11-01 => 2022-11-01(화)
+    -->
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>날짜의 요일 구하기</legend>
+            날짜 <input type="date" id="date1"><br>
+            <button type="button" onclick="clickEevent2()">전송</button>
+        </fieldset>
+    </form>
+
+
+    <h3 id="week"></h3>
+    <script>
+        function clickEevent2(){
+            let date = document.getElementById("date1").value;
+            let now = new Date(date);
+
+            let day = now.getDay();
+            let week = "";
+            switch(day){
+                case 0 : week="일"; break;
+                case 1 : week="월"; break;
+                case 2 : week="화"; break;
+                case 3 : week="수"; break;
+                case 4 : week="목"; break;
+                case 5 : week="금"; break;
+                case 6 : week="토"; break;
+            }
+            
+            document.getElementById("week").innerText =
+            `${now.toLocaleDateString()} (${week})`;
+        }
+
+      
+
+    </script>
+
+    
+</body>
+</html>

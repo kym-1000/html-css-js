@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    <h1>
+        객체 : 식별할 수 있는것을 상세 특징으로 표현하려하는 형식(코드 타입)
+    </h1>
+    <ul>
+        <li>
+            const로 선언하는것이 일반적 : 객체의 지속성을 확보하기 위함
+        </li>
+        <li>
+            {속성명 : 속성값, 속성명 : 속성값, .... 으로 표현}; 
+        </li>
+        <li>
+            속석명은 같은 객체 내에서는 중복되면 안됨
+        </li>
+        <li>
+            객체 내부의 속성값으로 사용할수 있는 데이터 타입은 제한이 없다
+        </li>
+        <li>
+            객체 속성값으로 익명함수를 정의하면 그 함수를 메서드라고 한다
+            메서드명은 속성명이 된다.
+        </li>
+    </ul>
+
+    <script>
+        const car = {name : "MyCar", year: 2020};
+        // 재선언 x 재설정 x - 선언한 객체를 지킬수 있음.
+        let Mycar = {name : "MyCar", year: 2020};
+        Mycar = 100; // 가능 하지만 객체는 사라짐
+    </script>
+
+    <script>
+        const me = {
+            name: "kim young mok",
+            age : 29,
+            addr : "seoul",
+            favor : "coffee",
+            subject : {
+                year : 2020,
+                title : "자바스크립트",
+                ver : "ES6",
+                Project : "자바",
+                intro : function(){
+                    console.log(`${me.subject.title}: ${me.subject.ver} = ${me.subject.Project}`);
+                    return `re : ${this.title} : ${this.ver} = ${this.Project}`
+                    // this 내가 소속된 객체의 .무엇
+                },
+            },
+            year : 2022,
+        };
+        console.log(me.name);
+        console.log(me.age);
+        console.log(me.subject.title);
+        console.log(me.subject.intro); // 함수 실행이 아닌 지목
+        console.log(me.subject.intro()); // 함수실행
+        console.log(me.favor);
+
+    </script>
+
+    <script>
+        const mu = {
+            // 내가 좋아하는 가수의 객체 이름, 나이, playlist () fuction 
+            // 노래 3곡을 입력받아(파라미터로 입력) 출력
+
+            name : "랩소디",
+            age : "미상",
+            playlist : {
+                song1 : "에메랄드소드",
+                song2 : "다운오브 빅토리",
+                song3 : "보드카",
+            },
+            introduce : function(song1,song2,song3) {
+                console.log(`${this.playlist.song1}, ${this.playlist.song2}, ${this.playlist.song3}`);
+                return `${song1}, ${song2}, ${song3}`;
+            },
+        };
+
+        console.log(`가수명 : ${mu.name}`);
+        console.log(`나이 : ${mu.age}`);
+        console.log(mu.playlist);
+        console.log(mu.introduce("아무거나","나올듯","합니다"));
+
+        let play = mu.introduce("아","이","우");
+        console.log(play);
+        console.log(typeof play);
+        let key = "age";
+        console.log(me.age);
+        let key1 = "subject";
+        console.log(me[key1]["intro"]()); // = me.subject.intro()
+
+    </script>
+
+</body>
+</html>

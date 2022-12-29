@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100%;
+        }
+        .header{
+            height: 60px;
+            background-color: aqua;
+        }
+
+        .main-img{
+            height: 350px;
+            background-color: rgb(18, 34, 34);
+        }
+        .subject{
+            height: 320px;
+            background-color: blueviolet;
+        }
+
+        .content{
+            height: 380px;
+            background-color: red;
+        }
+
+        .sub{
+            height: 200px;
+            background-color: rgb(232, 16, 175);
+        }
+         
+        .footer{
+            height: 200px;
+            background-color: rgb(74, 139, 115);
+        }
+        /* @media screen and (mid-width:576px)
+            576px - 모바일 
+            768px - 태블릿pc
+            992px - 데스크탑(작은)
+            1200px - 와이드화면 */
+            
+            /* 모바일우선 / 데스크탑 우선  */
+            /* 모바일우선 - min-width(최소~부터 적용) 
+            작은 가로폭부터 ~ 큰 가로폭 순으로 작성 */
+            /* 데스크탑 우선 - max-width(최대~까지 적용)
+            큰 가로폭부터 ~ 작은 가로폭 순으로 작성 */
+
+            @media screen and (min-width:768px) {
+
+            .header{
+                height: 60px;
+            }
+            .main-img{
+                height: 550px;
+            }
+            .subject{
+                height: 800px;
+                width: 50%;
+                float: left;
+            }
+            .content {
+                width: 50%;
+                float: right;
+                height: 400px;
+            }
+            .sub{
+                width: 50%;
+                float: right;
+                height: 400px;
+            }
+            .footer{
+                clear: both;
+                float: left;
+                height: 200px;
+
+            }
+        }
+       
+    </style>
+    
+</head>
+<body>
+    <div class="header"></div>
+    <div class="main-img"></div>
+    <div class="subject"></div>
+    <div class="content"></div>
+    <div class="sub"></div>
+    <div class="footer"></div>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--
+        박스1을 클릭하면 네이버로 이동하는 버튼
+        안쪽 글자는 버튼  가운데 정렬  마우스 올리면 변경
+    -->
+    <style>
+        a{
+            text-decoration: none;
+        }
+        .box1{
+            box-sizing: border-box;
+            width: 220px;
+            height: 220px;
+            border: 5px solid rgb(0, 0, 0);
+            border-width: 5px;
+            border-radius: 20px; 
+            font-size: large;
+            font-weight: 700;
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: italic;
+            text-align:  center;
+            text-shadow: 5px 5px 5px rgb(135, 81, 81);
+            text-underline-offset: 1px;
+            background-color: rgb(255, 255, 255);
+            background-image: url(/img/2222.jfif);
+            padding-top: 80px;
+            display: inline-block;
+            
+        }
+
+        .box1:hover{
+            box-sizing: border-box;
+            border-color: rgb(255, 255, 255);
+            width: 250px;
+            height: 220px;
+            border-width: 5px;
+            border-radius: 20px; 
+            font-style: unset;
+            background-color: rgb(33, 211, 59);
+            background-image: url(/img/다운로드.jfif);
+            
+        }
+
+    </style>
+</head>
+<body>
+    
+    <a href="http://www.naver.com" ><div class="box1" >네이버버튼</div></a>
+
+</body>
+</html>

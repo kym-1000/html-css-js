@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>나이구하기</legend>
+            이름 <input type="text" id="name"><br>
+            주민등록번호 <input type="text" id="number"><br>
+            <button type="button" onclick="clickEevent1()">전송</button>
+        </fieldset>
+    </form>
+    <h3 id="info"></h3>
+    <script>
+         function clickEevent1(){
+             let name = document.getElementById("name").value;
+             let number = document.getElementById("number").value; 
+
+             document.getElementById("info").innerText = `이름은: ${name}`; 
+             document.getElementById("info").innerText += ` 생년월일은  ${number.substring(0,2)}년 ${number.substring(2,4)}월 ${number.substring(4,6)}일 `;
+             document.getElementById("info").innerText += ` 성별은 ${number.charAt(number.indexOf("-")+1)==1 ? "남자" : "여자"}`;
+             let date2 = new Date(number.substring(0,2)-1,number.substring(2,4),number.substring(4,6))
+            document.getElementById("info").innerText += `  나이는 ${date.getFullYear()-date2.getFullYear()+1}`;
+            
+            console.log(date2);
+            console.log(date2.getFullYear());
+            // 오늘날짜 / 시간 
+            /* 
+                get은 값을 얻어올때 set는 값을 변경할때
+                getFullyear() : 년도추출
+                getMonth() : 월 0~11 +1
+                getDate() : 일
+                getDay() : 요일 0~6 일~토
+                getHour() : 시간
+                getMinutes() : 분
+            getSecond() : 초
+            */
+          
+           
+        }  
+        let date = new Date();
+        console.log(date);
+        console.log(date.getFullYear());
+        console.log(date.getMonth()+1);
+        console.log(date.getDate());
+        
+        //  indexOf 의 o는 대문자
+    </script>
+    
+</body>
+</html>

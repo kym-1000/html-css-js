@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- css로 간단한 애니메이션 효과 추가 -->
+    <!-- 
+        1. 애니메이션 등록(keyframes)
+            - 시간비율에 0~100% 0% => from 100% => to 사용가능  (둘다 가능)
+            @keyframes 애니메이션 명{
+                시간비율{
+                    스타일;
+                }
+                시간비율{
+                    스타일
+                }
+            }
+        2. 애니메이션 적용 
+            - 속성
+            - animation-name : 동작시킬 애니메이션 이름
+            - animation-dureation : 애니메이션 동작시간
+            - animation-iteration-count : 애니메이션 반복횟수, 숫자 or infinite(무한)
+     -->
+
+     <style>
+        
+        @keyframes scalefont{
+            0%{
+                font-size: 20px;
+            }
+            50%{
+                font-size: 50px;
+            }
+            100%{
+                font-size: 20px;
+            }
+
+        }
+        .ani{
+            animation-name: scalefont;
+            animation-duration: 3s;
+            animation-iteration-count: 2;
+        }
+        
+        @keyframes ani22{
+            0%{
+                border-radius: 0px;
+            }
+            50%{
+
+                border-radius: 50px;
+            }
+            100%{
+                border-radius: 0px;
+            }
+        }
+
+        .ani2{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background-color: yellow;
+            animation-name:ani22;
+            animation-duration: 3s;
+            animation-iteration-count: 3;
+        }
+
+
+     </style>
+
+
+</head>
+<body>
+    <span class="ani">animation</span> 
+        <br><br><br><br><br>
+    <div class="ani2"></div>
+    
+</body>
+</html>

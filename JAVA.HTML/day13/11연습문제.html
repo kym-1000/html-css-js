@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" 
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <style>
+
+    body{
+        background-color: wheat;
+    }
+
+    .icon{
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transition: translate(-50%,-50%);
+    }
+    .material-symbols-outlined{
+        font-size: 10rem;
+    }
+        
+    </style>
+</head>
+<body>
+    <div class="icon">
+        <span class="material-symbols-outlined" id="e" >
+            settings_accessibility
+            </span>
+    </div>
+
+    <script>
+        // 마우스 움직임에 따라 좌표 변경
+
+        const icon = document.querySelector(".icon");
+        document.addEventListener("mousemove", (e)=>{
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            icon.style.left = mouseX + 'px';
+            icon.style.top = mouseY + 'px';
+        })
+    </script>
+    
+</body>
+</html>

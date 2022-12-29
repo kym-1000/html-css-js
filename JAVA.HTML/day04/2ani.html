@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- animation-timaing-duration : 애니메이션 진행속도(등속)
+         animation-delay : animation 시작전 대기시간
+         animation-dirction : 진행방향 (정방향,역방향)
+         animation-fill-mode : animation을 마친 후 어떤 상태로 만들지 결정하는 모드
+         animation-play-state : animation을 진행할지 여부 (진행할지 멈출지 설정)
+    -->
+
+    <style>
+        
+        @keyframes ani1{
+            0%{
+                border-radius: 0px;
+                left: 0px;
+            }
+            25%{
+                border-radius: 25px;
+                left: 200px;
+                /* background-color: rgba(255, 255, 255, 0.515); */
+                width: 200px;
+                height: 200px;
+            }
+            50%{
+                border-radius: 50px;
+                left: 400px;
+                /* background-color: rgba(255, 255, 255, 0.057); */
+                width: 100px;
+                height: 100px;
+            }
+            75%{
+                border-radius: 25px;
+                left: 200px;
+                /* background-color: crimson; */
+                width: 200px;
+                height: 200px;
+            }
+            100%{
+                border-radius: 0px;
+                left: 0px;
+                width: 300px;
+                height: 300px;
+            }
+        }
+
+        .ani{
+            width: 300px;
+            height: 300px;
+            background-color: crimson;
+            animation-name: ani1;
+            
+            animation-duration: 5s;
+            animation-iteration-count: 5;
+            position: relative; 
+            
+        }
+
+        .ani2{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: rgb(40, 20, 220);
+            /* 한꺼번에 적는것도 가능하다 애니메이션/시간/횟수 */
+            animation: ani1 5s 5;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    <div class="ani"></div>
+    <div class="ani2"></div>
+    
+</body>
+</html>

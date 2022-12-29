@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let myAccount = {
+            name : "hong",
+            balance : 0,
+            deposit : function(amount){
+                this.balance += amount;
+            },
+            wdraw : function(amount){
+                this.balance -= amount;
+            },
+            transfer : function(amount,otherAccount){
+                this.balance -= amount;
+                otherAccount.balance += amount;
+            }
+        }
+
+        let yourAccount = {
+            name : "kim",
+            balance : 1000,
+            deposit : function(amount){
+                this.balance += amount;
+            },
+            wdraw : function(amount){
+                this.balance -= amount;
+            },
+            transfer : function(amount,otherAccount){
+                this.balance -= amount;
+                otherAccount.balance += amount;
+            }
+        }
+
+        // 내 계좌에 입금 
+        console.log(myAccount.name, ":", myAccount.balance);
+        myAccount.deposit(1000);
+        console.log(myAccount.name, ":", myAccount.balance);
+        myAccount.wdraw(500);
+        console.log(myAccount.name, ":", myAccount.balance);
+        console.log("--------------------");
+
+        // 송금
+        myAccount.transfer(300,yourAccount);
+        console.log(myAccount.name, ":",myAccount.balance);
+        console.log(yourAccount.name, ":", yourAccount.balance);
+
+
+        // BankAccount 클래스 생성
+
+        class myAccount2{
+            constructor(name,balance){
+                this.name = name;
+                this.balance = balance;
+            }
+
+            setbalance(balance){
+                this.balance = balance;
+            }
+
+            deposit(amount){
+                this.balance += amount;
+            }
+
+            wdraw(amount){
+                this.balance -= amount;
+            }
+
+            transfer(amount,otherAccount){
+                otherAccount.balance += amount;
+                this.balance -= amount;
+            }
+        }
+
+        let kim = new myAccount2("김철수",0);
+        let sin = new myAccount2("신짱구",0);
+        
+        kim.setbalance(200000);
+        kim.wdraw(35000);
+        console.log(kim);
+        kim.transfer(50000,sin);
+        console.log(sin);
+        
+    </script>
+    
+</body>
+</html>

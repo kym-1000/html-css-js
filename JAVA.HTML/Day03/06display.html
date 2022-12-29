@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display-table</title>
+
+    <style>
+        /* *는 모든태그 */
+        *{ 
+            margin: 0;
+            padding: 0;
+        }
+        .boxwrap{
+            display: table;
+            width: 100%;
+            table-layout: fixed; 
+            /* 테이블 고정 */
+        }
+        .boxwrap .box{
+            /* 부모 속성(테이블)안에 들어가는 셀(표 안의 셀) */
+            display: table-cell;
+            /* 세로 가운데 정렬 */
+            vertical-align: middle;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .thumb img{
+            width: 40%;
+            transition:  transform 0.5s;
+
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            display: inline-block;
+            
+        }
+        .title_item{
+            display: block;
+            font-size: 1em;
+        }
+
+        .desc_item{
+            font-size: 0.7em;
+        }
+
+        .price{
+            font-size: 0.9em;
+            font-weight: 700;
+        }
+
+        .title_item, .desc_item{
+            margin-top: 10px;
+        }
+
+        .box .link{
+            text-decoration: none;
+            color: black;
+        }
+
+        .box .link :hover{
+            text-decoration: underline;
+        }
+
+        .thumb img:hover{
+            transform: SCALE(1.2,1.2);
+        }
+
+       
+        
+    </style>
+
+</head>
+<body>
+    <div class="boxwrap">
+        <!-- 각각의 박스들 추가  -->
+        <!-- 첫 박스 set  -->
+        <div class="box">
+            <a href="http://www.compuzone.co.kr/product/product_detail.htm?ProductNo=901511&BigDivNo=4&MediumDivNo=1012&DivNo=2033" class="link" >
+                <span class="thumb">
+                    <img src="/img/라이젠.jpg" alt="라이젠">
+                </span>
+                <strong class="title_item">가을특가 상품</strong>
+                <p class="desc_item">라이젠 5800X3D</p>
+                <p class="price">570000원</p>
+            </a>
+        </div>
+        <!-- 두번째 박스 시작점 -->
+        <div class="box">
+            <a href="http://www.compuzone.co.kr/product/product_detail.htm?ProductNo=961888&BigDivNo=4&MediumDivNo=1012&DivNo=2032" class="link" >
+                <span class="thumb">
+                    <img src="/img/인텔.jpg" alt="인텔 i9">
+                </span>
+                <strong class="title_item">가을특가 상품</strong>
+                <p class="desc_item">인텔 i9-13900K</p>
+                <p class="price">1050000원</p>
+            </a>
+        </div>
+        <!-- 세번째 박스 시작점 -->
+        <div class="box">
+            <a href="http://www.compuzone.co.kr/product/product_detail.htm?ProductNo=960296&BigDivNo=4&MediumDivNo=1016&DivNo=2043" class="link" >
+                <span class="thumb">
+                    <img src="/img/4090.jpg" alt="지포스4090">
+                </span>
+                <strong class="title_item">가을특가 상품</strong>
+                <p class="desc_item">지포스 4090 출시특가</p>
+                <p class="price">3190000원</p>
+            </a>
+        </div>
+        <!-- 네번째 박스 시작점 -->
+        <div class="box">
+            <a href="http://www.compuzone.co.kr/product/product_detail.htm?ProductNo=498216&BigDivNo=8&MediumDivNo=1018&DivNo=3471" class="link" >
+                <span class="thumb">
+                    <img src="/img/커세어키보드.jpg" alt="키보드">
+                </span>
+                <strong class="title_item">가을특가 상품</strong>
+                <p class="desc_item">커세어 키보드</p>
+                <p class="price">225000원</p>
+            </a>
+        </div>
+    </div>
+    
+</body>
+</html>

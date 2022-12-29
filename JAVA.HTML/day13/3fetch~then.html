@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        promise 객체를 리턴하는 함수를 호출하는 함수는 then 메서드를 사용하여
+        실행순서를 기다리게 할수 있다.
+    </h1>
+    <ul>
+        <li>
+            fetch 함수 : 데이터 통신을 위해 제공되는 함수이며 url 주소를 파라미터로 받아 통신
+        </li>
+        <li>
+            then 메서드 : promise 객체를 리턴하는 함수 및 메서드를 기다려서 다음 순서의 로직을 
+            수행하기 위한 연결기능을 한다.
+        </li>
+        <li></li>
+        
+    </ul>
+
+    <h3 >
+        http://jsonplaceholder.typicode.com/todos/1
+    </h3>
+
+    <ul id="ul"></ul>
+    <button type="button" id="btn">데이터 불러오기</button>
+
+    <script>
+        document.getElementById("btn").addEventListener("click",function(){
+            fetch('http://jsonplaceholder.typicode.com/todos/1')
+            .then(resp => resp.json())
+            .then(json => printData(json));
+        })
+
+        function printData(obj){
+            console.log(obj);
+            let ul = document.getElementById("ul");
+            for(const key in obj){
+                ul.innerHTML += `<li> ${key} : ${obj[key]}</li>`
+            }
+
+        }
+    </script>
+</body>
+</html>

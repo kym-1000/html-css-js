@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    인원수 : <input type="number" id="peopleNum">
+    <button type="button" onclick="createinputArea(peopleNum.value);">버튼</button>
+    <div id="inputArea"></div>
+    <button type="button" onclick="submit();">제출</button>
+    <table id="result"></table>
+    <script>
+        // 데이터를 입력할 인원수를 입력받고,
+        // 각 개인의 html, css, js 과목의 점수를 입력하면
+        // 각 과목의 점수, 총점, 평균을 html의 table태그에 출력하기
+        var inputArea = document.getElementById("inputArea");
+        var result = document.getElementById("result");
+        var map = new Map();
+        var number;
+        function createinputArea(num){
+            number = num;
+            inputArea.innerHTML = "";
+            for(i=0; i<num; i++){
+                inputArea.innerHTML += `이름 : <input type="text" id="people${i}_name"> `;
+                inputArea.innerHTML += `HTML : <input type="number" id="people${i}_HTML"> `;
+                inputArea.innerHTML += `CSS : <input type="number" id="people${i}_CSS"> `;
+                inputArea.innerHTML += `JS : <input type="number" id="people${i}_JS"> <br>`;
+            }
+        }
+        function submit(){
+            setMap();
+            result.innerHTML = "";
+            for(i of map.keys()){
+                var name = i;
+                var arr = map.get(i);
+                var html = arr[0];
+                var css = arr[1];
+                var js = arr[2];
+                var sum = sumFunc(arr);
+                var avg = avgFunc(sum);
+                createResultHTML(name, html, css, js, sum, avg);
+            }
+        }
+        function setMap(){
+            for(i=0; i<number; i++){
+                var arr = [];
+                arr.push(Number(document.getElementById(`people${i}_HTML`).value));
+                arr.push(Number(document.getElementById(`people${i}_CSS`).value));
+                arr.push(Number(document.getElementById(`people${i}_JS`).value));
+                
+                map.set(document.getElementById(`people${i}_name`).value, arr);
+            }
+        }
+        function sumFunc(arr){
+            var result = Number(0);
+            for(i of arr) result += Number(i);
+            return result;
+        }
+        function avgFunc(sum){
+            return Math.round(sum/3*100)/100;
+        }
+        function createResultHTML(name, html, css, js, sum, avg){
+            result.innerHTML += `이름 : ${name}, HTML : ${html}, CSS : ${css}, JS : ${js}, 합계 : ${sum}, 평균 : ${avg}`;
+        }
+    
+</body>
+</html>

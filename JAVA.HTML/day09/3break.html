@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //1~10까지 콘솔 출력
+        let cnt = 0;
+        while(cnt < 10){
+            if(cnt == 7){
+                console.log("7까지 출력한 후 8부터 중지");
+                break;
+            }
+            cnt++;
+            console.log(cnt);
+        }
+
+        let cnt1 = 0;
+        while(cnt1 < 10){
+            cnt1++;
+            if(cnt1 == 7){
+                continue;
+            }
+            console.log(cnt1);
+            
+        }
+    </script>
+    
+</body>
+</html>

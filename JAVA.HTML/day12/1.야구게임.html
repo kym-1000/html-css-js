@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        컴퓨터가 0~9의 중복되지 않는 정수 3개를 랜덤으로 출제하면 맞추는 게임
+    </h1>
+    <li>
+        1. 세자리의 숫자는 각 자리수를 갖고 서로 중복되지 않는다 <br>
+        2. 각 자리수와 입력한 숫자의 자리수가 동일하면 1스트라이크 <br>
+        3. 입력한 숫자가 포함되어 있으나 자리수가 동일하지않으면 1볼 <br>
+        4. 입력한 숫자가 전혀 포함되어 있지 않으면 아웃 <br>
+        5. 3스트라이크면 게임종료 <br>
+        6.플레이 예시  <br>
+        컴숫자(4,2,9) > 내 추측 숫자 (4,1,7) => 1s <br>
+        컴숫자(4,2,9) > 내 추측 숫자 (4,9,1) => 1s 1b <br>
+    </li>
+
+    <button id="gamest" onclick="comran()">게임시작</button> <br>
+    숫자 추측하기<input type="text" id="game" ><button id="game" onclick="game()">추측확인</button><br>
+    <h3 id="comran1"></h3>
+    <h3 id="result"></h3>
+
+    <script>
+        const Set1 = new Set();
+        const comArr = [];
+        const myArr = [];
+        let stk = 0;
+        let ball = 0;
+        let num1 = 0;
+        let cnt2=0;
+
+        function comran(){
+            for(let i=0;Set1.size<3;i++){
+                Set1.add(Math.floor(Math.random()*9));
+            }
+
+            let cnt=0;
+            for(let item of Set1){
+                comArr[cnt] = item;
+                cnt++; 
+            }
+            console.log(comArr);
+                
+            document.getElementById("comran1").innerText = `컴퓨터가 랜덤 번호를 생성하였습니다.`
+
+        }
+
+        function game(){
+            num1 = document.getElementById("game").value;
+
+            if(error(num1)){
+                for(let i=0;i<3;i++){
+                    myArr[i] = parseInt(num1.substring(i,i+1));
+                }
+                
+                for(let i=0;i<comArr.length;i++){
+                    for(let j=0;j<myArr.length;j++){
+                        if(comArr[i]== myArr[j] && i == j ){
+                            stk++;
+                        }else if(comArr[i]== myArr[j] &&  i != j){
+                            ball++;
+                        }
+                    }
+                }
+                
+                if(stk==0 && ball ==0){
+                    document.getElementById("result").innerHTML += `${++cnt2}. 아웃! <br>`
+                }else if(stk == 3){
+                    document.getElementById("result").innerHTML += `${++cnt2}. 스트라이크!<br>`
+                }else{
+                    document.getElementById("result").innerHTML += `${++cnt2}. 나의 번호는 ${myArr} 스트라이크 ${stk} 볼 ${ball}<br>`
+                }
+                
+                myArr.slice(0,2);
+                ball = 0;
+                stk = 0;
+                
+            }else{
+                document.getElementById("result").innerHTML = `유효하지않은 값입니다.`
+            }
+            
+        }
+        
+        function error(num1){
+            if(num1.length != 3){
+                return false;
+            }
+            if(isNaN(num1)){
+                return false;
+            }
+            if(new Set(num1).size != 3){
+                return false
+            }
+            return true;
+        }
+
+        </script>
+    
+</body>
+</html>

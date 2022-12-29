@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/92e616dfba.js" crossorigin="anonymous"></script>
+
+
+    <style>
+        a{
+            color: white;
+            text-decoration: none;
+        }
+        body{
+            background-color: rgb(0, 0, 0);
+            text-align: center;
+           
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            padding-top: 30px;
+           
+        
+        }
+    
+        .top{
+            width: 100%;
+            height: 100px;
+            background-color: rgba(131, 32, 32,0.5); 
+            color: azure;
+            border-radius: 10px;
+
+           
+        }
+
+        .salegame{
+            width: 100%;
+            display: inline-block;
+            height: 600px;
+            background-color:rgba(6, 22, 36, 0.5);
+        }
+
+        .salegame img{
+            width: 220px;
+            height: 330px;
+            border-radius: 10px;
+        }
+        .top5 img{
+            width: 220px;
+            height: 330px;
+            border-radius: 10px;
+        }
+        
+        .box{
+            height: 60%;
+            width: 20%;
+            float: left;
+            /* left: 440px; */
+            text-align: center;
+            padding-top: 10px;
+            color: white;
+        }
+
+        
+
+        .top5{
+            width: 100%;
+            display: inline-block;
+         
+            height: 600px;
+            background-color: rgba(80, 47, 73,0.5);
+        }
+   
+        
+        h1{
+            text-align: left;
+            padding-top: 20px;
+            padding-left: 20px;
+            padding-bottom: 20px;
+            margin: 0px;
+            color: white;
+        }
+
+        .category{
+          
+            width: 100%;
+            display: inline-block;
+            border-radius:0px 0px 10px 10px;
+            height: 582px;
+            background-color: rgba(66, 15, 41, 0.5);
+            text-align: center;
+            padding-bottom: 0px;
+            
+        }
+
+        .btn{
+            width: 25%;
+            height: 500px;
+            margin: 0px;
+            float: left;
+        }
+        .cabtn{
+            width: 30%;
+            height: 50px;
+            border: none;
+            background-color: #2A475E;
+        }
+        .box4{
+            position: fixed;
+            background-color: blue;
+            bottom: 10px;
+            right: 10PX;
+        }
+        footer{
+            text-align: center;
+            color: rgba(255, 255, 255, 0.25);
+        }
+        footer a{
+            color: rgba(255, 255, 255, 0.25);
+            text-decoration: none;
+        }
+        
+        .nav {
+            display: flex;
+            align-items: center;
+            padding: 15px 50px;
+            z-index: 1;
+            position: fixed; 
+            background-color: black;
+            border-radius: 10px 10px 0px 0px;
+            color: white;
+            top: 0px;
+            width: 100%;
+            
+        
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: whitesmoke;
+        }   
+        .menu {
+            border: 1px solids hotpink;
+            display: flex;
+            list-style: none;
+            padding-left: 0;
+        }
+        .menu li {
+            padding: 8px 80px;
+        }
+
+        .menu li:hover {
+            border-bottom: 3px solid darkslategrey;
+        }
+
+
+        .logo {
+            width: 70px;
+            height: 70px;
+        }   
+
+        .logo i {
+            font-size: 55px;
+            padding-top: 7px;
+        }
+
+        .searchbox i {
+            font-size: 9px;
+        }
+
+        .searchbox input {
+            font-size: 20px;
+            width: 500px;
+            text-decoration: none;
+            border-radius: 13px;
+            border-color: gray;
+        }
+        .login {
+        /* border: 1px solid red; */
+            font-size: 24px;
+         
+        }
+      
+        img {
+            transition: all 0.2s linear;
+            z-index: 2;
+            
+        }
+        img:hover {
+            transform: scale(1.1);
+            cursor: grab;
+        
+
+        }
+        .cateh3{
+            float: left;
+            width: 25%;
+            color: white;
+            padding-top: 50px;
+        }
+        .hidden{
+            width: 100%;
+            height: 62.6px;
+            background-color: white;
+        }
+        .hiddentext{
+            display: inline;
+            position: absolute;
+            text-align: center;
+            width: 25%;
+            float: left;
+           
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="toptop"></div>
+        <div class="logo">
+            <a href="#">
+                <i class="fa-solid fa-gamepad"></i>
+            </a>
+        </div>
+
+        <div class="menu">
+            <li><a href="#">소개</a></li>
+            <li><a href="#">스토어</a></li>
+            <li><a href="#">커뮤니티</a></li>
+        </div>
+
+        <div class="searchbox">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="STORE SEARCH">
+        </div>
+
+        <div class="login">
+            <a href="">
+                <i class="fa-regular fa-circle-user"></i>
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="hidden">
+       
+    </div>
+    <div class="category">
+        <h1>카테고리</h1>
+        <a href="">
+            <div class="catebox">
+                <img class="btn" src="/img/35956558-비행기-이륙.webp" alt="" id="photo1"  onclick="photo1(this)"> 
+                <!-- 여기다! -->
+              
+            </div>
+        </a>
+        <a href="">
+            <div class="catebox">
+                <img class="btn" src="/image/1.PNG" alt="" id="cate1">
+            </div>
+        </a>
+        <a href="">
+            <div class="catebox">
+                <img class="btn" src="/image/1.PNG" alt="" id="cate1">
+             
+            </div>
+        </a>
+        <a href="">
+            <div class="catebox">
+                <img class="btn" src="/image/1.PNG" alt="" id="cate1">
+              
+            </div>
+        </a>
+    </div>
+    
+    
+    <div class="salegame">
+        <h1 id="sale">특가상품!!!!</h1>
+        <div class="box">
+            <div class="first-game">
+                    <img src="/img/4090.jpg" alt="첫번째 게임" id="img1">          
+            </div>
+            <h3>
+                OVERWATCH2<br><br>
+                <del>20,000원</del> -> 10,000원<br>
+                간단한 설명
+            </h3>
+
+        </div>
+        <div class="box">
+            <div class="second-game">
+  
+                    <img src="/image/2.jfif" alt="두번째 게임" id="img2">
+ 
+            </div>
+            <h3>
+                2번째 게임<br><br>
+                <del>원래가격</del> -> 나중가격 <br>
+                간단한 설명
+            </h3>
+        </div>
+        <div class="box">
+            <div class="third-game">
+                    <img src="/image/3.jfif" alt="첫번째 게임" id="img3">
+        
+            </div>
+            <h3>
+                3번째 게임<br><br>
+                <del>원래가격</del> -> 나중가격 <br>
+                간단한 설명
+            </h3>
+        </div>
+        <div class="box">
+            <div class="first-game">
+                <img src="/image/4.jfif" alt="첫번째 게임" id="img4">
+            </div>
+            <h3>
+                4번째 게임<br><br>
+                <del>원래가격</del> -> 나중가격 <br>
+                간단한 설명
+            </h3>
+        </div>
+        <div class="box">
+            <div class="first-game">
+                <img src="/image/5.jfif" alt="첫번째 게임" id="img5">
+            </div>
+            <h3>
+                5번째 게임<br><br>
+                <del>원래가격</del> -> 나중가격 <br>
+                간단한 설명
+            </h3>
+        </div>
+    </div>
+
+
+    <div class="top5" id="floatright">
+        <h1 id="top5">top5</h1>
+        <div class="box">
+            <div class="first-game">
+                <img src="/img/sa.jpg" alt="첫번째 게임" id="img6">
+            </div>
+            <h3>
+                첫번째 게임<br><br>
+                간단한 설명
+            </h3>
+        </div>
+        <div class="box">
+            <div class="first-game">
+                <img src="/image/로스트아크.jfif" alt="첫번째 게임" id="img7">
+            </div>
+            <h3>
+                첫번째 게임<br><br>
+                간단한 설명
+            </h3>
+        </div>
+        <div class="box">
+            <div class="first-game">
+                <img src="/image/발로란트.jfif" alt="첫번째 게임" id="img8">
+            </div>
+            <h3>
+                첫번째 게임<br><br>
+                간단한 설명
+            </h3>
+        </div>
+        <div class="box">
+            <div class="first-game">
+                <img src="/image/서든어택.jfif" alt="첫번째 게임" id="img9">
+            </div>
+            <h3>
+                첫번째 게임<br><br>
+                간단한 설명
+            </h3>
+        </div>
+        <div class="box">
+            <div class="first-game">
+                <img src="/img/new.jpg" alt="첫번째 게임" id="img10">
+            </div>
+            <h3>
+                첫번째 게임<br><br>
+                간단한 설명
+            </h3>
+        </div>
+    </div>
+    
+    <a href="#toptop">
+        <button class="box4">
+        ^
+        </button>
+    </a>
+
+
+
+   
+
+</body>
+
+<footer>
+    <p>
+        <a href="#">인재채용</a> | <a href="#">회사소개</a> | <a href="#">고객지원</href=> | <a href="#">문의 등록</a> | <a href="#">보도자료</a> | <a href="#">API</a> | 등등
+        <br><br>
+        지금 바로 즐겨보세요 <a href="#-login or Main">Sixmans-Team</a>
+    </p>
+<pre>
+2022 Sixmans-Team, Inc. 모든 권리는 어딘가에 있습니다.
+여기서 언급된 다른 모든 <b>상표</b>는 각 소유권자들의 자산입니다.
+개인정보 처리방침|법률 관련 문서|이용 약관|쿠키정보 처리방침|쿠키 설정
+        
+Sixmans-Team
+주소: 인천광역시 남동구 인주대로 593 엔타스빌딩 12층
+대표 번호: 2588-2588 | 팩스 번호: (032)812-1246 | 이메일 Sixmans-Teamsuppot@ezen.co.kr
+사업자 등록 번호:516-86-00232 | 대표 : DongEun-JO | 개인정보 보호책임자:6조 전체
+</pre>
+
+</footer>
+
+<script>
+    document.getElementById('cate1').addEventListener('click',function(){
+     document.getElementById(`img${i}`).src="/image/게임모음집/게임모음집/fps1.jpg"; `/image/게임모음집/게임모음집/fps${i}.jpg`
+     document.getElementById('img2').src="/image/게임모음집/게임모음집/fps2.jpg";
+     document.getElementById('img3').src="/image/게임모음집/게임모음집/fps3.jpg";
+     document.getElementById('img4').src="/image/게임모음집/게임모음집/fps4.jpg";
+     document.getElementById('img5').src="/image/게임모음집/게임모음집/fps5.jpg";
+    })
+    document.getElementById('cate2').addEventListener('click',function(){
+     document.getElementById('img1').src="/image/게임모음집/게임모음집/rpg1.jpg";
+     document.getElementById('img2').src="/image/게임모음집/게임모음집/rpg2.jpg";
+     document.getElementById('img3').src="/image/게임모음집/게임모음집/rpg3.jpg";
+     document.getElementById('img4').src="/image/게임모음집/게임모음집/rpg4.jpg";
+     document.getElementById('img5').src="/image/게임모음집/게임모음집/rpg5.jpg";
+    })
+    document.getElementById('cate3').addEventListener('click',function(){
+     document.getElementById('img1').src="/image/게임모음집/게임모음집/sports1.jpg";
+     document.getElementById('img2').src="/image/게임모음집/게임모음집/sports2.jpg";
+     document.getElementById('img3').src="/image/게임모음집/게임모음집/sports3.jpg";
+     document.getElementById('img4').src="/image/게임모음집/게임모음집/sports4.jpg";
+     document.getElementById('img5').src="/image/게임모음집/게임모음집/sports5.jpg";
+    })
+    document.getElementById('cate4').addEventListener('click',function(){
+     document.getElementById('img1').src="/image/게임모음집/게임모음집/육성1.jpg";
+     document.getElementById('img2').src="/image/게임모음집/게임모음집/육성2.jpg";
+     document.getElementById('img3').src="/image/게임모음집/게임모음집/육성3.jpg";
+     document.getElementById('img4').src="/image/게임모음집/게임모음집/육성4.jpg";
+     document.getElementById('img5').src="/image/게임모음집/게임모음집/육성5.jpg";
+    })
+ </script>
+ 
+
+
+</html>

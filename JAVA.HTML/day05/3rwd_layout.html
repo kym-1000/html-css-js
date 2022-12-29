@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100%;
+        }
+        .header{
+            height: 60px;
+            background-color: rgb(24, 26, 26);
+            color: white;
+        }
+
+        .main-img{
+            height: 350px;
+            background-image: url(/img2/스피커1.webp);
+            background-repeat: no-repeat;
+
+        }
+        .description{
+            height: 300px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .sub-img1{
+            height: 350px;
+            background-color: red;
+        }
+
+        .sub-img2{
+            height: 200px;
+            background-color: rgb(232, 16, 175);
+        }
+         
+        .footer{
+            height: 200px;
+            background-color: rgb(74, 139, 115);
+        }
+        /* @media screen and (mid-width:576px)
+            576px - 모바일 
+            768px - 태블릿pc
+            992px - 데스크탑(작은)
+            1200px - 와이드화면 */
+
+            /* 모바일우선 / 데스크탑 우선  */
+            /* 모바일우선 - min-width(최소~부터 적용) 
+            작은 가로폭부터 ~ 큰 가로폭 순으로 작성 */
+            /* 데스크탑 우선 - max-width(최대~까지 적용)
+            큰 가로폭부터 ~ 작은 가로폭 순으로 작성 */
+
+            @media screen and (min-width:768px) {
+
+            .header{
+                height: 60px;
+            }
+            .main-img{
+                height: 600px;
+            }
+            .description{
+                height: 300px;
+                width: 50%;
+                float: left;
+            }
+            .sub-img1 {
+                width: 50%;
+                float: left;
+                height: 300px;
+            }
+            .sub-img2{
+                width: 50%;
+                float: left;
+                height: 150px;
+            }
+            .footer{
+                clear: both;
+                float: left;
+                height: 150px;
+
+            }
+        }
+        </style>
+</head>
+<body>
+    <div class="header">IN'O</div>
+    <div class="main-img"></div>
+    <div class="description">
+        <div class="text1" >
+            <p>Portfolio</p>
+            <p>make hardware soft</p>
+            <p>You get a reliable connection up to 10 meters away, with virtually no delays or dropouts—even in the busiest wireless environments.</p>
+        </div>
+    </div>
+    <div class="sub-img1"></div>
+    <div class="sub-img2"></div>
+    <div class="footer"></div>
+    
+</body>
+</html>

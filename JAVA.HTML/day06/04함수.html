@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+    <script src="/day06/sc.js"></script>
+    <script>
+        outerfunc();
+        function mysecond (){
+            console.log(`두번째 함수`);
+            console.log(`헤드에서 작성`);
+            console.log(`html 파일이 로드되면서 함수가 선언됨`);
+            console.log(`헤드태그에 선언된 함수들은 초기설정 및 선언식 위주의 형태로 작성하는것이 일반적임`);
+        }
+        mysecond();
+    </script>
+</head>
+<body>
+    <h1>함수(function) : 특정 기능을 수행하기 위한 코드  - 호출되어야만 작동 </h1>
+    <ul>
+        <li>일반적으로 function 이라는 키워드를 사용하여 선언</li>
+        <li>function 함수명 : 함수명은 기능을 함축설명하는 의미로 작성 </li>
+        <li>함수명 뒤에 ()를 작성한 후 선택적으로 파라미터로 사용할 변수를 선언할 수 있다</li>
+        <li>(){} 함수의 영역을 지정한후 그안에 기능 로직 작성</li>
+        <li>return 이라는 키워드를 사용하여 함수의 종료시점을 지정할수 있음 </li>
+        <li>return 종료역할 + 특정 결과 값을 호출한 시점의 코드로 반환 할수 있다.</li>
+        <li>파라미터의 개수제한은 없으나 많으면 관리하기가 힘듦  그럴경우 별도의 문법을 적용한다.</li>
+    </ul>
+
+    <script>
+        //함수 선언식
+        function myfirst(){
+            console.log(`처음으로 만들어본 함수`);
+            console.log(`신기신기`);
+        }
+        // 함수 호출
+        myfirst();
+        //재사용 가능
+        myfirst();
+    </script>
+
+    <script>
+        let hers = "이재영";
+        
+        function callName(herName){
+            let hisName = "홍길동";
+            console.log(`그대의 이름은 ${herName}`);
+            console.log(`그대의 이름은 ${hers}`);
+        }
+        callName("은솔이"); // 직접 값을 입력
+        callName(hers);     // 변수 사용
+        // callName(hisName);  // 변수 (함수내부에서 선언한 변수는 외부에서 사용불가능 )
+
+        // 이름, 페이벌 값을 받아 00은 00dmf 좋아한대요 출력
+        
+        function callfavor(name,favor){
+            let hisName = name+"님";
+            let like =  favor+"를(을)";
+            console.log(`${hisName}은 ${like}좋아한대요`);
+        }
+        callfavor("홍길동","커피");
+
+    
+        function iknow(herName,favor){
+            callName(herName);
+            callfavor(herName,favor);
+            console.log("iknow");
+        }
+        iknow("홍길순","커피")
+    </script>
+        
+    
+</body>
+
+    
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        q2 0~1000사이의 정수 5개를 랜덤으로 생성하여 가장 큰수 와 가장 작은 수를 출력
+    </h1>
+
+    <input type="button" onclick="ran()">
+
+    <h1 id="print"></h1>
+
+    <script>
+
+        function ran(){
+            let arr1 = [10,20,30,40,50];
+            
+            for(let i=0;i<arr1.length; i++){
+                arr1[i] = Math.floor(Math.random()*1000)+1;
+            }
+
+            let min = arr1[0];
+            let max = arr1[0];
+
+            for (let i = 0; i < arr1.length; i++) {
+		        if(max<arr1[i]) {
+			    max = arr1[i];
+		        }else if(min>arr1[i]) {
+		    	min = arr1[i];
+		        }
+
+	        }
+
+            document.getElementById("print").innerText =
+            `최대값 ${max} 최소값 ${min}`
+            
+        }
+
+
+
+    </script>
+
+</body>
+</html>

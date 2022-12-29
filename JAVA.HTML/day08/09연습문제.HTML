@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자 출현 횟수</title>
+</head>
+<body>
+
+    <h1>
+        주어진 문장에서 입력받은 글자나 단어의 개수를 출력하기
+      </h1>
+      <p id="para">
+        Contrary to popular belief, Lorem Ipsum is not simply random text. 
+        It has roots in a piece of classical Latin literature from 45 BC, 
+        making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, 
+        looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through 
+        the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 
+        1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC.
+         This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, 
+         "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+        The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
+        Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form,
+         accompanied by English versions from the 1914 translation by H. Rackham.
+      </p>
+
+      찾을 단어 입력 <input type="text" id="keyword">
+      <button type="button" id="search" onclick="sea()">출력</button>
+
+      <h3>
+        찾는 키워드 <span id="key"></span>
+        출현개수 <span id="count"></span>개
+      </h3>
+
+
+
+      <script>
+
+        function sea(){
+            let cnt = 0;
+            let key = document.getElementById("keyword").value;
+            let para1 = document.getElementById("para").innerText;   // p태그 값은 밸류로 받아올수 없고 이너 텍스트로만 받아올수 있다.
+
+            for (let i = 0; i < para1.length; i++ ) {
+                if(para1[i] !== key ){      
+                    continue;
+                }
+                cnt++;
+            }
+            document.getElementById("count").innerText= `${cnt}`;
+        }
+
+
+      </script>
+
+    
+</body>
+</html>

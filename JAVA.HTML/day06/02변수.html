@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수</title>
+</head>
+<body>
+    <h1>스트립트의 변수</h1>
+    <h3>
+        형식 제한이 없음. 
+    </h3>
+    <h3>
+        변수를 선언할 때 사용하는 키워드 : var, let , const
+    </h3>
+    <h3>
+        변수 : 선언, 초기값 
+        var : 재선언 가능. 
+        권장사항
+        let, const : 재선언 불가능 
+        const : 재할당 불가능 let는 재할당 가능
+    </h3>
+    <h3>
+
+    </h3>
+    
+    <script>
+        var name = 'kim';
+        console.log(name);
+        var name = "hong";
+        console.log(name);
+        var name = 1234;
+        console.log(name);
+
+        let letName = "kim";
+        console.log(letName);
+        letName = "hong";
+        console.log(letName);
+
+        const conName = "kim";
+        console.log(conName);
+        // conName = "hong";
+        // console.log(conName);
+
+    </script>
+
+    <script>
+        let age = 23;
+        let addr = "seoul";
+        let hobby = "baseball";
+        let favor = "coffee";
+
+        console.log("이름 : "+letName);
+        console.log("나이 :",age+"세");
+        console.log("주소 : "+addr);
+        console.log("취미 : "+hobby);
+        console.log("선호 : "+favor);
+        //  백틱 `` 안에 ${}을 사용하여 변수의 내용을 바로 출력가능
+        console.log(`취미 : ${hobby}`);
+        console.log(`내년은 : ${age+1} 세`);
+        
+
+    </script>
+
+</body>
+</html>

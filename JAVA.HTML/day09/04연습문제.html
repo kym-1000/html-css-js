@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        팰린드롬 : 거꾸로 읽어도 같은 단어가 되는 단어들 
+        기러기 토마토 스위스 별똥별 
+    </h1>
+
+    <ul>
+        <li>
+            단어를 입력받아서 팰린드롬 여부를 출력
+        </li>
+        <li>
+            팰린드롬 맞음. / 아님
+        </li>
+    </ul>
+
+    단어입력 : <input type="text" id="strDate">
+    <button type="button" onclick="text1()">입력</button>
+    <h3 id="result"></h3>
+        
+    <script>
+        let str = document.getElementById("strDate").value;
+
+        function text1(){
+
+            if(str[0] == str[str.length-1]){
+            document.getElementById("result").innerText= `팰린드롬이 맞습니다.`;
+            }else{
+                document.getElementById("result").innerText= `팰린드롬이 아닙니다.`;
+            }
+            
+        }
+
+    </script>
+
+
+
+
+</body>
+</html>

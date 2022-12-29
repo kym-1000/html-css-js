@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">
+        이벤트 객체는 전역객체 모든 태그에 객체를 참조 시킬수 있다.
+    </h1>
+    <ul>
+        <li>
+            a태그와 버튼태그에 이벤트를 주로 참조  클릭에 대한 반응을 기대 할수있도록 
+        </li>
+        <li>
+            a태그는 href속성에 의해 자체 이동(동기화 방식)이 구현되어 있어서 별도의 이동 속성을 막는 코드가 필요
+        </li>
+        <li>
+            html 태그는 html element, 속성 attribute, 일반 텍스트 textNode라고 함
+
+        </li>
+        <li> 
+            html로 출력하기 : innerhtml
+        </li>
+        <li>
+            text로 출력하기 : innerText
+        </li>
+        <li>
+            id 값으로 객체를 가져올때 : getElementById("name")
+        </li>
+        <li>
+            css선택자를 사용하여 가져오기 : querySelector('selector')
+        </li>
+        
+    </ul>
+
+        <button type="button" onclick="eventFunc()">클릭해보세요</button>
+        <button type="button" onclick="eventFunc2(100)">클릭해보세요</button>
+        <button type="button" onclick="alert('경고창 띄우기');">클릭해보세요</button>
+        <button type="button" id="testbutton">테스트버튼</button>
+        <h1 id="result"></h1>
+        <script>
+            function eventFunc(){
+                let ptrint = document.getElementById('result');
+                ptrint.innerText = "첫번째 버튼을 클릭하여 작성한 함수1";
+            }
+            function eventFunc2(num){
+                let ptrint = document.getElementById('result');
+                ptrint.innerHTML = 
+                `<span style = "color : red;">스팬태그를 사용하여 출력한 함수2</sapn> ${num} `;
+            }
+            document.getElementById('testbutton').addEventListener("click",()=> {
+                alert("테스트버튼을 클릭했음");
+            })
+
+        </script>
+
+</body>
+</html>

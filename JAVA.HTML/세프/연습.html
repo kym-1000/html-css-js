@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Slider</title> 
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }        
+    li {
+        list-style: none;
+    }       
+    a {
+        font-family: "돋움";
+        font-size: 12px;
+        color: #000;
+        text-decoration: none;
+    }        
+    #visual {
+        position: relative;
+        width: 700px;
+        height: 400px;
+        margin: 0 auto;
+        overflow: hidden;           
+        box-shadow: 1px 5px 10px 2px #666;
+    
+    }      
+    #visual>div {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transition: 0.3s ease;
+        opacity: 0;
+    }
+    #visual>div.on{
+        opacity: 1;
+    }
+    #control { 
+        position: absolute;
+        width: 100%;
+        bottom: 30px;
+        text-align: center;         
+    }
+    #control a {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: #f6f5f5;                       
+        line-height: 26px;
+        font-size: 0.8em;
+        border-radius: 14px;
+        margin: 0 2px
+    }
+    
+    #control a.on {
+        background: #9ab3f5;
+    }
+
+    </style>
+
+</head>
+  <body>
+    <div id="visual">     
+             <div class="on"><a href="#"><img src="https://cdn.pixabay.com/photo/2020/08/19/00/13/sea-5499649_960_720.jpg" alt="1" width="100%" height="100%"></a></div>
+             <div><a href="#"><img src="https://cdn.pixabay.com/photo/2020/09/28/10/07/face-mask-5609287_960_720.png" alt="2" width="100%" height="100%"></a></div>
+             <div><a href="#"><img src="https://cdn.pixabay.com/photo/2020/10/01/15/18/tiger-5618802_960_720.jpg" alt="3" width="100%" height="100%"></a></div>
+             <div><a href="#"><img src="https://cdn.pixabay.com/photo/2020/01/26/10/33/chess-4794265_960_720.jpg" alt="4" width="100%" height="100%"></a></div>     
+        <section id="control">
+            <a class="on" href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </section>
+  </div>
+
+  <script>
+    var idx_lgth = $("#visual>div").length;
+  var srt = 1;
+  var idx = 0;
+  
+  $("section>a").click(function(){
+    idx = $(this).index();
+    srt = idx;
+    $(this).addClass('on').siblings().removeClass('on');
+    $("#visual>div").eq(idx).addClass('on').siblings().removeClass('on');
+  });
+  
+var AutoSlide = setInterval(AutoRun, 1000);
+
+function AutoRun(){
+  srt++;  
+  
+  if(srt == idx_lgth){
+      srt = 0;  
+  }
+$("section>a").eq(srt).addClass('on').siblings().removeClass('on');
+  $("#visual>div").eq(srt).addClass('on').siblings().removeClass('on');
+}
+
+$("#visual").mouseover(function(){
+  clearInterval(AutoSlide);
+  $("#right").css({opacity : '1'});
+  $("#left").css({opacity : '1'});
+});
+$("#visual").mouseleave(function(){
+   AutoSlide = setInterval(AutoRun, 1000);
+    $("#right").css({opacity : '0'});
+  $("#left").css({opacity : '0'});
+});
+
+$("#right").click(function(){
+  srt++;
+ if(srt == idx_lgth){
+      srt = 0;   
+ } 
+ $("#visual>div").eq(srt).addClass('on').siblings().removeClass('on'); $("section>a").eq(srt).addClass('on').siblings().removeClass('on');
+});
+
+$("#left").click(function(){
+  srt--;
+  if(srt == -1){
+      srt = idx_lgth-1; 
+  }
+ $("#visual>div").eq(srt).addClass('on').siblings().removeClass('on');
+  $("section>a").eq(srt).addClass('on').siblings().removeClass('on'); 
+});
+
+
+function search1(){
+            let inputpwd = prompt("작성자이름을 입력해주세요");
+
+            for(let i=0;i<localStorage.length;i++){
+                let tit = window.localStorage.key(i);               
+                let obj = JSON.parse(localStorage.getItem(tit));
+                console.log(inputpwd);
+                console.log(obj.writer);
+                if(obj.writer.includes(inputpwd)){
+                
+                document.getElementById(`${i+1}`).innerHTML =
+                `<div class="num">${i+1}</div>
+                <div class="title" ><a href="보기.html?${i}">${obj.title}.</a></div>
+                <div class="writer">${obj.writer}</div>
+                <div id="날짜임${i+1}">${obj.today}</div>
+                <div class="count">${obj.cnt}</div>`;
+                }
+            }
+
+        }
+
+  </script>
+</body>
+</html>

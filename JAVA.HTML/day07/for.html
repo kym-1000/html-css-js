@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>
+        input text에 파일명,확장자를 입력하고, 전송버튼을 클릭하면 이미지 파일인지 아닌지 검사하여
+        이미지 파일 = 정상파일입니다.
+        이미지 파일이 아니면 = 이미지 파일이 아닙니다.
+    </h1>
+
+    <form action="">
+        파일명 : <input type="text" id="fileName">
+        <button type="button" id="sub" onclick="event5()">전송</button>
+    </form>
+    <h2 id="printZone"></h2>
+    <script>
+        // 입력받은 파일네임이 이미지 확장자가 맞으면 트루 아니면 펄스 
+        // 대소문자 상관없음 
+        // jpg , gif , png , jpeg , bmp
+        // match(값....) 있다면 트루 없다면 펄스 
+
+        let str = "red,";
+        console.log(str.match("red")=="red");
+        // 정규식 : / 값 / gi => 값을 대소문자 구분없이 전체 체크
+        // str.toLowerCase() : 소문자 str.toUpeerCase() : 대문자 
+
+        function event5(){
+            let Name = document.getElementById("fileName").value;
+
+            let fileName =Name.toLowerCase();
+            fileName = fileName.substring(".");
+
+            if(fileName.match("jpg")=="jpg"){
+                console.log("이미지파일입니다.");
+            }else if(fileName.match("gif")=="gif"){
+                console.log("이미지파일입니다.");
+            }else if(fileName.match("png")=="png"){
+                console.log("이미지파일입니다.");
+            }else if(fileName.match("jpeg")=="jpeg"){
+                console.log("이미지파일입니다.");
+            }else if(fileName.match("bmp")=="bmp"){
+                console.log("이미지파일입니다.");
+            }else{
+                console.log("이미지 파일이 아닙니다.");
+            }
+        }
+
+
+
+        
+
+    </script>
+
+</body>
+</html>

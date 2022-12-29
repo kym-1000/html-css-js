@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        카운트 만들기
+    </h1>
+    버튼을 클릭하면 숫자가 1식 증가하고, -버튼을 클릭하면 숫자가 1씩 감소
+    <br>
+
+    
+    <button type="button"  id="in" onclick="in1()"><p>+</p></button>
+    <button type="button" id="in" onclick="in2()"><p>-</p></button>
+    <h3 id="result"></h3>  
+
+    <script>
+        let num = 0;
+
+        function in1(){
+            num++;
+            document.getElementById("result").innerText= `${num}`;
+        }
+
+        function in2(){
+            if(num==0){
+                return document.getElementById("result").innerText= ` 0 이하로 내려갈수없음!!!!!`;
+            }
+            num--;
+            document.getElementById("result").innerText= `${num}`;
+        }   
+
+
+        // function in3(){
+        //     if(document.getElementById("in").innerText == "+"){
+        //         num++;
+        //         document.getElementById("result").innerText= `${num}`;
+        //     }else{
+        //         if(num==0){
+        //             return document.getElementById("result").innerText= ` 0 이하로 내려갈수없음!!!!!`;
+        //         }
+        //         num--;
+        //         document.getElementById("result").innerText= `${num}`;
+        //     }
+        // }
+
+
+
+
+    </script>
+    
+</body>
+</html>

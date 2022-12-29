@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+        <style>
+
+            body{
+                font-family: EastSeaDokdo;
+                background-color: bisque;
+                text-align: center;
+            }
+            /*  폰트를 저장하여 웹에서 꺠지는 일이 없도록 적용 */
+            @font-face{
+                font-family: EastSeaDokdo;
+                src: url(/font/EastSeaDokdo-Regular.ttf)
+            }
+
+            .box1{
+            text-align: center;
+            display: inline-block;  
+            /* 인라인 블록을 주면 한줄로 쫙 나온다 */
+            position: absolute;
+            width: 250px;
+            height: 300px;
+            left: 38%;
+            border-radius: 10px;
+            border: none;
+            background-color: white;
+            margin-left: auto;
+            margin-right: auto;
+            }
+
+            .W2{
+                position: absolute;
+                top: 75%;
+            }
+
+            .W3{
+                position: absolute;
+                top: 132%;
+            }
+
+            .W4{
+                position: absolute;
+                top: 189%;
+            }
+
+            img{
+                border-radius: 10px 10px 0 0 ;
+                width: 250px;
+                height: 150px;
+            }
+        </style>
+
+
+
+</head>
+<body>
+    <div class="food">
+        <div class="t"><h1>배달의 민족</h1></div>
+        <div class="tt">우리가 어떤민족입니까?</div>
+        <div class="box1">
+                <span class="thumb">
+                    <img src="/img/치킨2.png" alt="치킨">
+                </span>
+                <strong class="title_item">후라이드 치킨</strong>
+                <p>후라이드 한 마리 특가 13000원!</p>
+        </div>
+         <div class="box1 W2">
+                <span class="thumb">
+                    <img src="/img/육회.jfif" alt="육회">
+                </span>
+                <strong class="title_item">한우 육회</strong>
+                <p>싱싱한 한우육회 35000원!</p>
+        </div>
+        <div class="box1 W3">
+                <span class="thumb">
+                    <img src="/img/갈비.jfif" alt="숫불갈비">
+                </span>
+                <strong class="title_item">숫불갈비</strong>
+                <p>노릇노릇 소갈비! 1인분 19000원!</p>
+        </div>
+        <div class="box1 W4">
+                <span class="thumb">
+                    <img src="/img/감자탕.jfif" alt="감자탕">
+                </span>
+                <strong class="title_item">  감자탕</strong>
+                <p>감자와 고기가 한가득 감자탕 11000원!</p>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>

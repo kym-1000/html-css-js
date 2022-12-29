@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>구구단 출력</h3>
+    <button type="button" onclick="gugu()">구구단 출력하기</button>
+    <div class="gugudan"></div>
+    <script>
+        function gugu(){
+            let dan = 2;
+            // let str = `${dan} 단 <br>`;
+            while(dan <10){
+                let incre = 1;
+                while(incre <10){
+                    document.write(`${dan} * ${incre} =  ${dan*incre} <br> `);
+                    incre++;
+                }
+                dan++;
+                
+            }
+            
+
+        }
+
+
+        
+    </script>
+    
+</body>
+</html>

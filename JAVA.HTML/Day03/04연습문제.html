@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+        tr{
+            float: left;
+        }
+
+        h1{
+            width: 500px;
+            text-align: center;
+            font-size: large;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        
+        button{
+            text-align: center;
+            vertical-align: middle;
+            width: 120px;
+            height: 50px;
+            font-size:large;
+            font-weight: 70px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        
+
+    </style>
+
+
+
+</head>
+<body>
+    <h1>World Tour<span class="material-symbols-outlined">
+        backpack
+        </span></h1>
+
+    <table>
+        <tr>
+            <td> <button onclick="photo1(this)" id="pa" value="Paris">Paris<span class="material-symbols-outlined">
+                flight_takeoff
+                </span></button><br></td>
+        </tr>
+        <tr >
+            <td> <button onclick="photo1(this)" id="new" value="New York">New York<span class="material-symbols-outlined">
+                flight_takeoff
+                </span></button><br><br></td>
+        </tr>
+        <tr >
+            <td> <button onclick="photo1(this)" id="do" value="東京">東京<span class="material-symbols-outlined">
+                flight_takeoff
+                </span></button><br><br></td>
+        </tr>
+        
+        <tr >
+            <td>  <button  onclick="photo1(this)" id="sa" value="上海">上海<span class="material-symbols-outlined">
+                flight_takeoff
+                </span></button></td>
+        </tr>
+    </table>
+    
+    <img width="500px" height="300px" src="/img/38408_58294_1114.jpg" alt="항공기" id="photo"> <br>
+
+    <script>
+
+        function photo1(e){
+            let idval =e.id;
+            console.log(idval);
+            if(idval=="sa"){
+                document.getElementById("photo").src = "/img/sa.jpg";
+            }else if(idval=="do"){
+                document.getElementById("photo").src = "/img/도쿄.jpg";
+            }else if(idval=="new"){
+                document.getElementById("photo").src = "/img/new.jpg";
+            }else{
+                document.getElementById("photo").src = "/img/pa.webp";
+            }
+        }
+
+
+        
+    </script>
+    
+</body>
+</html>

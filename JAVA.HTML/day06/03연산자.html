@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>연산자</title>
+</head>
+<body>
+    <h1>연산자</h1>
+    <ul>
+        <li>산술연산자 가능</li>
+        <li>대입연산자 : 값을 연산후 자신의 변수에 다시 대입</li>
+        <li>비교연산자 가능 : >=,<=,>,< ,== , != ,===(타입이 같은지 확인), !==(값,타입 모두 다른지 확인)</li>
+        <li>증감연산자 : ++,--,+=,-= </li>
+        <li>논리연산자 : && || (and or) 연산자 사용가능 </li>
+        <li></li>
+    </ul>
+
+    <script>
+        let num1 = 1000;
+        let num2 = 500;
+        let resultAdd = num1+num2;
+        console.log(`결과는? ${resultAdd}`);
+        let resultSub = num1-num2;
+        console.log(`결과는? ${resultSub}`);
+        let resultMul = num1*num2;
+        console.log(`결과는? ${resultMul}`);
+        let resultDiv = num1/num2;
+        console.log(`결과는? ${resultDiv}`);
+
+        //  typeof : 선택한 변수의 타입을 확인하고 싶을 때 사용하는 명령어
+        let num3 = 5.0;
+        let resultDiv2 = num1/num3;
+        console.log(`결과는? ${resultDiv2}, 타입은? ${typeof resultDiv2}`);
+
+        console.log(` 10 % 3 = ${10 % 3}`);  // 10을 3으로 나눈 나머지
+        console.log(`10 ** 3 = ${10 ** 3}`); // 10의 3제곱
+
+        // 비교연산자
+        num1= 10;
+        num2= 10;
+        console.log(num1==num2);   // 값이 같은지 확인
+        console.log(num1 === num2); // 타입도 같은지 확인
+
+        num2 = '10';
+        console.log(num1==num2);   // 값이 같은지 확인
+        console.log(num1 === num2); // 타입도 같은지 확인
+
+        // 변수의 선언 ,초기화 
+        let n1,n2,n3; // 한줄 선언
+        n1 = 10,n2 = 20,n3 = 30;  // 한줄 초기화
+        let a1=100, a2=200, a3=300;
+
+        //삼항연산자 가능
+        console.log(n1 == n2 ? n1 : n2);
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>수학관련 함수</h1>
+    <h3>
+        Math.random(), Math.round(), Math.ceil(), 
+        Math.floor(), Math.abs(), Math.max(),  Math.min() Math.pow()
+
+    </h3> -->
+
+    <button type="button" onclick="clickEevent3()"> ramdom 점수계산</button>
+
+    <h3 id="ptrint"></h3i>
+
+    <script>
+        console.log(Math.floor(Math.random()*10)+1);
+    </script>
+
+
+<script>
+    // 세과목의 점수를 랜덤으로 발생시켜 과목의 합과 평균을 출력
+    function clickEevent3(){
+        let kor = (Math.floor(Math.random()*50)+51);
+        let eng = (Math.floor(Math.random()*50)+51);
+        let math = (Math.floor(Math.random()*50)+51);
+        let sum = kor+eng+math;
+        let avg = (sum/3).toFixed(2);
+        let rank = "";
+
+
+        if(avg==100){
+            rank = "A";
+        }else{
+            switch(avg.charAt(0)){
+                case "9" : rank="A"; break;
+                case "8" : rank="B"; break;
+                case "7" : rank="C"; break;
+                case "6" : rank="D"; break;
+                default : rank="F"; break;
+            }
+        }
+
+
+        // document.write(` 합은 ${sum} 평균은 ${avg} `);
+        document.getElementById("ptrint").innerText =`  국 ${kor},영${eng},수${math} 세과목의 합은 ${sum} 평균은 ${avg} 등급은 ${rank}`;
+    }
+
+   
+
+
+
+
+        
+    </script>
+
+    
+</body>
+</html>

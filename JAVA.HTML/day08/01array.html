@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        자바스크립트의 배열은 유동배열 : 크기와 데이터가 변경이 가능하다.
+    </h1>
+
+    <ul>
+        <li>
+            const MyArray = ['a','b','c',1,2,3];
+        </li>
+        <li>
+            데이터의 타입이 다르더라도 허용하고 있음.
+        </li>
+        <li>
+            MyArray = []; 초기값이 없는 빈 배열을 생성 후 데이터를 추가하여 크기 변경이 가능
+        </li>
+        <li>
+            각 데이터들은 (,)로 분리되고, 자리는 index로 관리 0부터 시작
+        </li>
+        <li>
+            길이(length) 속성을 이용하여 측정, 크기가 변경될 때 마다 자동으로 체크
+        </li>
+        <li>
+            인덱스번호 순서 뛰어넘음 등의 변칙적인 사용이 가능함.      모두 undefined(정의되지않음)으로 초기화됨
+        </li>
+        <li>
+            추후 데이터 통신, 변환에서 자주사용
+        </li>
+    </ul>
+
+    <script>
+        const MyArray = ['a','b','c'];
+        console.log(MyArray);
+        console.log(MyArray.length);
+        console.log(MyArray[0]);
+
+        MyArray[MyArray.length] = "add";
+        console.log(MyArray);
+        MyArray[MyArray.length+5] = "NEW";
+        console.log(MyArray[7]);
+        console.log(MyArray[8]);
+        console.log(MyArray[9]);
+        MyArray[7]= "apple";
+        console.log(MyArray[7]);
+
+        console.log("--------------");
+
+        let arr1 = [10,20,30,40,50];
+        // 다른 타입의 데이터들과 혼합된 형태로 만들어 사용되는 경우도 많다.
+        // 유사배열
+        let arr2 = [1,true,undefined,{k:"value"},['k','b']];
+
+        for(let i =0 ; i<arr1.length;i++){
+            console.log(arr1[i]);
+        }
+
+        for(let i =0 ; i<arr2.length;i++){
+            console.log(typeof arr2[i], arr2[i]);
+        }
+        let key = 'k'
+        console.log(arr2[arr2.length-2].k); // 키로 값을 검색
+
+        console.log(arr2[arr2.length-1][0]); 
+        console.log(arr2[arr2.length-1][1]); 
+
+        console.log("-------------");
+
+        for(let elem of arr2){   // 향상된 for문  비슷함
+            console.log(typeof elem, elem);
+        }
+
+
+
+    </script>
+
+</body>
+</html>

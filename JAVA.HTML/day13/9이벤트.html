@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        마우스 이벤트 documant 영역에서 사용되어지는 이벤트들 
+    </h1>
+
+    <li>
+        메서드를 태그 속성이나 엘리먼트에 직접 부여하는 방식 이외
+    </li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+
+    <button type="button" id="makeBtn">엘리먼트 만들기</button>
+    <div class="zone"></div>
+    <h3></h3>
+
+    
+    <script>
+        document.addEventListener("click", (e)=>{
+            console.log(e.target.id);
+            if(e.target.id=="makeBtn"){
+                let newBtn = `<button type="button" id="newBtn">생성된 버튼</button>`;
+                document.getElementById("zone").innerHTML = newBtn;
+            }
+        });
+    </script>
+    
+</body>
+</html>

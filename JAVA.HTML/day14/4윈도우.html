@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <li>
+        setTimeout(callback function, duration)  
+        , setInterval() : 실행시간 지정 메서드
+    </li>
+    <li>
+        window.open("url","window name", "options(size, scroll.....)")
+    </li>
+
+    <button type="button" id="start">시작!</button>
+    <button type="button" id="finish">끝!</button>
+    <h1 id="print"></h1>
+    <script>
+        let timeObj;
+        document.querySelector("#start").onclick = () => {
+            timeObj = setTimeout(myfun,3000); // 3초후 함수 실행
+        }
+
+        function myfun(){
+            document.querySelector("#print").innerHTML = "3초 후에 뵐게요~~";
+        }
+
+        document.querySelector("#finish").onclick = function(){
+            clearTimeout(timeObj);
+        }
+
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        데이터를 다룰 때 배열과 객체를 혼용해서 다루는 경우가 많음.
+    </h1>
+
+    <ul>
+        <li>
+            배열안에 객체를 저장, 객체 안에 배열을 저장되어 있는 형태
+            배열 > 객체 > 배열 형태
+        </li>
+        <li>
+            for in, for of 문을 적절히 사용
+        </li>
+        <li>
+            for (key of 배열) : 배열 순회
+        </li>
+        <li>
+            for(key in 객체) : 객체 순회
+        </li>
+    </ul>
+
+    <script>
+        const arrob= {
+            name : "kim",
+            age : 35,
+            mar : true,
+            favors : 
+            ["커피","야구","게임","영화"],
+        };
+
+        const people = []; // 5개 추가
+        for(let i=0; i<5;i++){
+            people.push(arrob);
+        }
+        console.log(people);
+        console.log(people[2]);
+        console.log("=========");
+        people[0].name="hong";
+        console.log(people[0]);
+        // people[1].age= 50;
+        people[0].favors[0]="축구";
+
+        console.log("=========");
+
+        for(const member of people){
+            // 배열의 인덱스를 전체 순회
+            console.log("--배열안의 객체");
+            for(const key in member){ // 객체의 이름을 키로 전체 순회
+                console.log("객체 안의 값");
+                if(key != "favors"){ // 키 이름이 페이벌이 아닌 일반 데이터
+                    console.log(member[key]);
+                }else{ // 페이벌스인 데이터(배열)
+                    console.log("-- 페이벌스 안의 값 (객체 안의 배열)--");
+                    for(const favor of member[key]){
+                        console.log(favor);
+                    }
+                }
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

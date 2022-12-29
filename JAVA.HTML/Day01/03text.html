@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- input : 단일태그, 속성값에 따라 다양한 기능들을 활용 
+    input form태그와 같이 사용,
+    <input type = "속성명">
+    -->
+
+    <!-- type : "text" : 문자열을 입력받을때 사용, placeholder : 흐리게 표시, 문자를 입력하면 사라짐, -->
+    아이디 : <input type="text" placeholder="id" ><br>
+    비밀번호 : <input type="text" placeholder="pwd" > <br>
+    <br>
+    <hr>
+    <!-- type = "button" : 일반버튼 
+    type = "reset" : 리셋 버튼
+    type = "submit" : 전송버튼(서버로 전송하는 버튼) 
+    <button> tag에서도 동일하게 사용 -->
+    <form action="">
+       <input type="text" name="data"> <br>
+       <input type="button" value="button"><br>
+       <input type="reset" value="reset"><br>
+       <input type="submit" value="submit"><br>
+    </form>
+    <input type="password">  <!-- type="password" : 비밀번호 입력시 사용, 브라우저마다 다름 * or o  -->
+
+    <hr>
+
+    <!--  type = "checkbox"  : 다중선택을 이용할때 사용  -->>
+
+    <form action="">
+        좋아하는 과일을 선택해주세요 (복수선택가능)<br>
+        <input type="checkbox" name="fruit" value="apple">사과
+        <input type="checkbox" name="fruit" value="orange">오렌지
+        <input type="submit" value="제출">
+    </form>
+
+    <!-- type="radio" : 하나만 선택할때 (복수선택x)-->
+    <hr><br>
+    <form action="">
+        좋아하는 과일을 선택해주세요(복수선택불가능)<br>
+        <input type="radio" name="fruit" value="apple">apple
+        <input type="radio" name="fruit" value="orange">orange
+        <input type="submit" value="제출">
+
+    </form>
+
+    <hr><br>
+    <form action="">
+        <!--  -->
+        <label for="apple">
+            <input type="checkbox" name="fruit" value="apple" id="apple">apple
+        </label>
+
+        <label for="orange">
+            <input type="checkbox" name="fruit" value="orange" id="orange">orange
+        </label>
+        <input type="submit" value="제출">
+    </form>
+
+    <hr><br>
+
+        <!-- id는 반드시 1개만 가능하다 중복불가능!!  아이디를 바꾸면 레이블의 이름도 똑같이 바꿔준다!! -->
+    <form action="">
+        <label for="사과">
+            <input type="radio" name="fruit" value="apple" id="사과">사과
+        </label>
+        <label for="오렌지">   
+            <input type="radio" name="fruit" value="orange" id="오렌지">오렌지
+        </label>
+        <input type="submit" value="제출">
+    </form>
+
+    <hr>
+    <!-- 10대 20대 30대 40대이상 선택 라디오로 만들기-->
+    <form action="">
+        <p>당신의 나이를 선택해주세요</p>
+        <label for="10대">
+            <input type="radio" name="ages" value="10대" id="10대">10대
+        </label>
+        <label for="20대">
+            <input type="radio" name="ages" value="20대" id="20대">20대
+        </label>
+        <label for="30대">
+            <input type="radio" name="ages" value="30대" id="30대">30대
+        </label>
+        <label for="40대">
+            <input type="radio" name="ages" value="40대이상" id="40대">40대이상
+        </label>
+        <input type="submit" value="전송">
+    </form>
+
+    <hr><br>
+
+    <!-- type="color" : 색을 선택할때 사용 16진수로 표현  -->
+    <form action="">
+        <input type="color" name="color">
+        <input type="submit" value="제출">
+    </form>
+
+    <!-- type="month" : 년 월 표시  week 년 주, date 년 월 일, datetime-local 년월일시분초, time 시분초 -->
+
+    <input type="month"><br>
+    <input type="week"><br>
+    <input type="date" name="" id=""><br>
+    <input type="datetime" name="" id=""><br>
+    <input type="datetime-local" name="" id=""><br>
+    <input type="time" name="" id=""><br>
+
+    <hr><br>
+    <!-- type="email" : 이메일형식만 입력할 수 있게 체크 형태가 맞지 않으면 알림창을 띄움 url : url 형식만-->
+
+    <form action="">
+        <input type="email" name="email">
+        <input type="url" name="url">
+        <input type="submit" value="제출">
+    </form>
+
+    <!-- type="search" : 문자열을 입력할때 x버튼이 생김 -->
+
+    <input type="search">
+
+    <!-- type="file" : 파일을 선택할때 사용 -->
+    <input type="file">
+
+    <!-- type="hidden" : 값을 안보이게 숨기는 역할  실제 개발시 많이 사용 -->
+    <input type="hidden" name="hi" value="hihi"><br>
+
+    <!-- type="number" : 숫자만 입력가능 -->
+    <input type="number">
+
+    <!-- type="image" : 그림을 넣어주는 태그  img 태그로 대체가능 
+        src : 이미지의 주소 (사이트의 주소,저장경로)
+        alt : 이미지가 없을 때 보여질 글자 -->
+        <input type="image" width="20%"  alt="이미지없음"  src="https://www.lottehotelmagazine.com/resources/77226163-0abc-449b-a81c-a050d886112d_img_travel_MilkyWay-_detail10.jpg">
+        <br>
+
+    <!-- type="range" : 상태바를 이용하여 범위 값을 나타냄 -->
+    1<input type="range">10    
+
+</body>
+</html>

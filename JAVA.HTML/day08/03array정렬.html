@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        배열의 정렬은 문자기반으로 정렬이 됨
+    </h1>
+    <ul>
+        <li>
+            array.sort() : 오름차순 정렬
+        </li>
+        <li>
+            array.reverse() : 내림차순 정렬
+        </li>
+        <li>
+            정렬할  배열의 원소가 숫자 일 경우 콜백함수를 이용하여 내부 연산기법을 활용하여 정렬
+        </li>
+        <li>
+            array.sort(function(a,b){return a - b}) : 숫자 순차정렬 <br>
+            array.sort(function(a,b){return b - a}) : 숫자 역정렬 <br>
+        </li>
+        <li>
+            1~45까지 랜덤 숫자를 6개 생성해서 배열에 저장 한 후 순차 정렬을 하시오
+        </li>
+    </ul>
+
+    <script>
+        let arr1 = [];
+
+        function random(){
+            let ran = Math.floor(Math.random()*45)+1;
+            return ran;
+        }
+
+        for(let i = 0;i<6;i++){
+            arr1[i] = random();
+        }
+
+    console.log(arr1);
+
+    
+    </script>
+    
+</body>
+</html>

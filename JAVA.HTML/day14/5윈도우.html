@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        h1{
+            background-color: yellow;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1>
+        setInterval() 
+    </h1>
+
+    <button type="button" id="start">시작!</button>
+    <button type="button" id="finish">끝!</button>
+    
+
+    <Script>
+        let intervalobj;
+
+        function chCo(){
+            intervalobj = setInterval(flashColor, 1000);
+        }
+
+        function flashColor(){
+            let elem = document.querySelector("#h1");
+            elem.style.color = (elem.style.color == "white" ? "red" : "white");
+            elem.style.backgroundColor = (elem.style.backgroundColor == "red" ? "yellow" : "red");
+        }
+
+        function stopflashColor(){
+            clearInterval(intervalobj);
+        }
+
+        document.querySelector("#start").addEventListener("click",chCo);
+        document.querySelector("#finish").addEventListener("click",stopflashColor);
+
+    </Script>
+    
+</body>
+</html>

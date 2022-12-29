@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pro태그</title>
+</head>
+<body>
+    <!-- 태그 안에 입력된 내용이 보이게 하는 태그 -->
+    <pre>
+        안녕하세요
+        제 이름은 홍길동 입니다.
+        <b>홍  길  동</b> 
+    </pre>
+
+    <!-- meta : head안에서 들어가는 태그, 문서의 정보(페이지)의 관련된 태그 
+        - name 속성 
+            - viewport : 화면의 비율을 설정
+            - author : 페이지 작성자
+            - discription : 페이지 요약 정보 
+            - keyword : 컨텐츠와 관련된 키워드
+            - creator : 단체, 협회, 생성자의 이름
+            - title : 제목 
+            - robot : 웹 크롤러를 통해 문서를 읽어갈 수 있는지를 결정해주는 속성 
+                index : 현재문서, follow : 현재 문서에 링크된 문서들    
+    -->
+    <meta name="author" content="홍길동">
+    <meta name="discription" content="예제입니다.">
+    <meta name="keyword" content="ezen">
+    <!-- 이 문서+링크된문서 크롤링(정보를 가져가는것) 가능 -->
+    <meta name="robots" content="index,follow">
+    <!-- 크롤링 불가능 -->
+    <meta name="robots" content="indes, nofollow">
+
+</body>
+</html>

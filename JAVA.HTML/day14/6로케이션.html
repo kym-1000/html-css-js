@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        location 객체는 브라우저의 주소표시줄 입력에 관련된 객체임
+    </h1>
+
+    <ul>
+        <li>
+            location.href = "url" : url로 이동시킴
+        </li>
+        <li>
+            location.replace("url") : url로 이동
+            이동 전 페이지를 히스토리 객체에 저장하지 않음
+        </li>
+    </ul>
+    <button type="button" id="movehf">href를 사용</button>
+    <button type="button" id="moverc">replace를 사용</button>
+    <button type="button" id="movean">assign을 사용</button>
+    <button type="button" id="moverd">reload()를 사용한 페이지 재호출</button>
+    <button type="button" onclick="obj()" >객체 살펴보기</button>
+
+    <script>
+        document.getElementById("movehf").onclick = () =>{
+            location.href = "//www.google.com/search?q=%EB%84%A4%EC%9D%B4%EB%B2%84&oq=&aqs=chrome.0.69i59i450l8.5956337j0j7&sourceid=chrome&ie=UTF-8"
+        }
+
+        document.getElementById("moverc").onclick = () =>{
+            location.replace("https://www.naver.com/");
+        }
+
+        document.getElementById("movean").onclick = () =>{
+            location.assign("https://www.daum.net/");
+        }
+
+        document.getElementById("moverd").onclick = () =>{
+            location.reload();
+        }
+
+        function obj(){
+            console.log(window.location);
+        }
+
+    </script>
+    
+</body>
+</html>

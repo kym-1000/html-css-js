@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        header{
+            text-align: center;
+        }
+
+        #ti{
+            font-size: 80px;
+        }
+
+        #in{
+            font-size: 25px;
+        }
+
+        section{
+            position: absolute;
+            top: 35%;
+            left: 10%;
+            float: left;
+        }
+
+        #in2{
+            text-align: left;
+            font-size: 40px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <h2 id="ti"></h2>
+        <h4 id="in"></h4>
+    </header>
+
+    <section>
+        <h3 id="in2"></h3>
+        <h3 id="in3"></h3>
+    </section>
+
+    <script>
+        const  qs = document.querySelector("#in");
+        const  qs1 = document.querySelector("#in2");
+        const  qs2 = document.querySelector("#in3");
+
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+        .then(resp => resp.json())
+        .then(json => printData(json));
+      
+        function printData(obj){
+            console.log(obj);
+            document.querySelector("#ti").innerHTML += `${obj.squadName}`;
+            qs.innerHTML += `HomeTown : ${obj.homeTown} `;
+            qs.innerHTML += ` // Formed : ${obj.formed} <br>`;
+            printData2(obj);
+        }
+
+        function printData2(obj){
+            let arr = [];
+            let arr2 = [];
+            
+            for(let i=0; i<3;i++){
+                arr[i] = obj.members[i];
+                qs1.innerHTML += ` ${arr[i].name} &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp` ;
+            }
+            qs1.innerHTML += `<br>`;
+            for(j=0;j<3;j++){
+                arr2[j] = arr[j].powers;
+            }
+            console.log(arr2);
+
+            for(let V=0;V<3;V++){
+                qs2.innerHTML += `secretIdentity : ${arr[V].secretIdentity} <br>`;
+                qs2.innerHTML += `age : ${arr[V].age}<br>`;
+                qs2.innerHTML += `<li>${arr2[V][0]} <li> ${arr2[V][1]} <li> ${arr2[V][2]}<br> <br>`;
+            }
+            
+        }
+        
+
+
+    </script>
+    
+</body>
+</html>

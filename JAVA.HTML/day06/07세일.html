@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="myform1">
+            가격    : <input type="text" id="price">원<br>
+            할인율      : <input type="text" id="rate">%<br>
+            <button type="button" id="click" onclick="click2()">계산하기</button>
+    </form>
+
+
+    <!-- 가격,할인율 계산하기 버튼을 클릭하면
+        원래가격, 할인율,할인된 금액,지불금액을 출력하는 이벤트 펑션
+        -->
+        <h3 id="sum"></h3>
+    <Script>
+        function click2(){
+            let price = document.getElementById("price").value;
+            let rate = document.getElementById("rate").value;
+            price = Number(price);
+            rate=Number(rate);
+            let savePrice = price * (rate/100);
+            let salePrice = price - savePrice;
+            
+            document.getElementById("sum").innerText=
+            `원래가격 : ${price}, 할인율 ${rate}, 할인된 금액 ${savePrice}, 지불금액 ${salePrice} `;
+        }   
+    </Script>
+
+
+    
+</body>
+
+</html>

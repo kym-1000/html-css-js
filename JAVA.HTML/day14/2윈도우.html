@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윈도우 사이즈</title>
+</head>
+<body>
+    <h1>
+        ROM : Browser object Model : 브라우저를 지칭
+    </h1>
+
+    <ul>
+        <li id="ih">
+            window : 브라우저를 지칭하는 객체
+        </li>
+        <li id="iw">
+            window.innerHeight : 툴바를 제외한 높이
+        </li>
+        <li>
+            window.innerwidth : 스크롤바를 포함한 너비
+        </li>
+        <li>
+            윈도우와 브라우저의 화면 배율에 따라 달라짐
+        </li>
+        <li></li>
+    </ul>
+    <script>
+        let ih = window.innerHeight;
+        let iw = window.innerWidth;
+        document.querySelector("#ih").innerHTML += ih;
+        document.querySelector("#iw").innerHTML += iw;
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .p-box {
+      width: 500px;
+      height: 500px;
+      border: 1px solid black;
+    }
+    .box1 {
+      width: calc(100% / 3);
+      /* ! width : calc(100 / 3); 100%  띄어쓰기 필요 */
+      height: 100%;
+      background-color: rgb(25, 0, 255);
+      float: left;
+    }
+    .box2 {
+      width: calc(100% / 3);
+      height: 100%;
+      background-color: rgb(255, 0, 0);
+      float: right;
+    }
+
+    .box3 {
+      width: calc(100% / 3);
+      height: 100%;
+      background-color: rgb(255, 255, 255);
+      float: right;
+    }
+  </style>
+
+  <body>
+    <div class="p-box">
+      <div class="box1"></div>
+      <div class="box2"></div>
+      <div class="box3"></div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <!-- 
+        table = 표 만들때 사용
+        table 다른 태그와 조합해서 만든다.
+        tr : 한 행을 의미
+        td/th : 한 열을 의미(한칸)
+        td : 왼쪽정렬, 일반글씨 = 일반 내용 
+        th : 가운데정렬, 굵은 글씨 = 제목 (머리글)
+    -->
+
+    <!-- 3행 4열 테이블 생성 
+         tr 3개 td 4개씩 *3개 => 12개 필요 
+    -->
+
+    <table border="1" bordercolor="green" width="30%">
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th colspan="2">성적</th>
+        </tr>
+        <tr>
+            <td rowspan="2">1</td>
+            <td>홍길동</td>
+            <td>78</td>
+            <td>89</td>
+        </tr>
+        <tr>
+            <td>김영이</td>
+            <td>74</td>
+            <td>96</td>
+        </tr>
+    </table>
+
+    <!-- 3행 4열의 표를 만들어서 1~12까지 값을 채우시오 -->
+    <hr><br>
+
+    <table border="1" width="30%">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+    </table>
+
+    <!-- thead, tbody, tfoot
+        thead > tbody > tfoot 
+        순서가 달라져도 해당 순서대로 배치 
+    -->
+    <hr>
+    <table border="1">
+        <caption>숫자판</caption>
+        <tfoot>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+            </tr>
+        </tbody>
+        <thead>
+            <tr>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+            </tr>
+        </thead>
+    </table>
+
+
+    <table border="1" width="40%">
+        <caption>성적표</caption>
+        <tr>
+            <th>과목</th>
+            <th>이름</th>
+            <th>중간</th>
+            <th>기말</th>
+        </tr>
+        <tr>
+            <td>국어</td>
+            <td>홍길동</td>
+            <td>90</td>
+            <td>80</td>
+        </tr>
+        <tr>
+            <td>국어</td>
+            <td>김영이</td>
+            <td>80</td>
+            <td>70</td>
+        </tr>
+        <tr>
+            <td>국어</td>
+            <td>유관순</td>
+            <td>70</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td colspan="2">평균</td>
+            <td>80</td>
+            <td>80</td>
+        </tr>
+
+
+
+    </table>
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

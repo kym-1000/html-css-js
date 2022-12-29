@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>
+        form에서 입력한 데이터를 가져와 자바스크립트 객체로 저장 한 후 그 객체에 저장된 데이터를 버튼이벤트를 통해 출력하기
+    </h1>
+    <ul>
+        <li>
+            데이터 저장 버튼을 클릭하면 form에 입력된 데이터가 객체로 저장
+        </li>
+        <li>
+            출력버튼을
+        </li>
+    </ul>
+    <h3>데이터 리스트</h3>
+    <ol>
+        <li>이름</li>
+        <li>거주지</li>
+        <li>좋아하는 리스트
+            <ul>1.</ul>
+            <ul>2.</ul>
+            <ul>3.</ul>
+        </li>
+        <LI>이메일</LI>
+        <li>pet 소유여부</li>
+        <li>지금 가장 하고 싶은 것</li>
+    </ol>
+    <h3>리스트의 구조에 따라 자바 스크립트 객체를 만들어 저장</h3> -->
+    <form action="">
+        이름 : <input type="text" id="name"><br>
+        거주지 : <input type="text" id="home"><br>
+        좋아하는 리스트<br>
+        리스트1 : <input type="text" id="list1"><br>
+        리스트2 : <input type="text" id="list2"><br>
+        리스트3 : <input type="text" id="list3"><br>
+        이메일 : <input type="email" id="email1"><br>
+        pet 소유여부 : <input type="text" id="pet"><br>
+        지금 가장 원하는 것 : <input type="text" id="wt"> <br>
+        <button type="button" onclick="event3()">객체로 전송</button>
+    </form>
+    <h3>위에서 만든 객체 출력</h3>
+    <button type="button" onclick="event4()">출력</button>
+    <table>
+        <tr>
+            <th>이름</th>
+            <th id="name1"></th>
+        </tr>
+        <tr>
+            <th>거주지</th>
+            <th id="home1"></th>
+        </tr>
+        <tr>
+            <th>좋아하는 리스트</th>
+            <th id="list11">&nbsp;<br></th>
+            <th id="list12">&nbsp;<br></th>
+            <th id="list13">&nbsp;<br></th>
+        </tr>
+        <tr>
+            <th>이메일</th>
+            <th id="emali11"></th>
+        </tr>
+        <tr>
+            <th>소유여부</th>
+            <th id="pet1"></th>
+        </tr>
+        <tr>
+            <th>지금 가장 하고 싶은것</th>
+            <th id="wt1"></th>
+        </tr>
+    </table>
+
+    <script>
+
+        let oname = "";
+        let ohome = "";
+        let olist1 = "";
+        let olist2 = "";
+        let olist3 = "";
+        let oemail1 = "";
+        let opet = "";
+        let owt = "";
+    
+
+
+        function event3(){
+            let name = document.getElementById("name").value;
+            let home = document.getElementById("home").value;
+            let list1 = document.getElementById("list1").value;
+            let list2 = document.getElementById("list2").value;
+            let list3 = document.getElementById("list3").value;
+            let email1 = document.getElementById("email1").value;
+            let pet = document.getElementById("pet").value;
+            let wt = document.getElementById("wt").value;
+
+            oname = name;
+            ohome = home;
+            olist1 = list1;
+            olist2 = list2;
+            olist3 = list3;
+            oemail1 = email1;
+            opet = pet;
+            owt = wt;
+        }
+
+        function event4(){
+            document.getElementById("name1").innerHTML = `${oname}` ;
+            document.getElementById("home1").innerHTML = `${ohome}` ;
+            document.getElementById("list11").innerHTML = `1. ${olist1} <br>` ;
+            document.getElementById("list12").innerHTML = `2. ${olist2} <br>` ;
+            document.getElementById("list13").innerHTML = `3. ${olist3} <br>` ;
+            document.getElementById("emali11").innerHTML = `${oemail1}` ;
+            document.getElementById("pet1").innerHTML = `${opet}` ;
+            document.getElementById("wt1").innerHTML = `${owt}` ;
+        }
+        
+    
+    </script>
+</body>
+</html>

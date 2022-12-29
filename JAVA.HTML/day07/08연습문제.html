@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업다운게임</title>
+</head>
+<body>
+    <h1>UP down game</h1>
+    <ul>
+        <li>
+            랜덤 숫자 만들기 버튼을 클릭하면 컴퓨터가 랜덤으로 1~50사이의 숫자 1개를 생성
+        </li>
+        <li>
+            숫자가 생성되면 컴퓨터가 랜덤으로 숫자를 생성하였습니다. 라는 문구 출력
+        </li>
+        <li>
+            인풋창에 숫자를 입력하고 버튼을 클릭하면 
+        </li>
+        <li>
+            랜덤수와 체크하여 높은 숫자면 다운 낮은 숫자면 업을 출력
+        </li>
+        <li>
+            컴퓨터의 숫자를 맞추면 정답 컴퓨터의 숫자는 00 이었습니다 출력
+        </li>
+        <li>
+            횟수가 10회가 넘어가면 게임종료! 
+        </li>
+    </ul>
+
+    <h1><button type="button" onclick="createRandom()"> 업다운게임</button></h1>
+    <h3 id="printMsg"></h3>
+    <input type="number" id="myCh" max="50" min="1">
+    <h1><button type="button" onclick="compareNum2()">check</button></h1>
+    <h3 id="resultMsg"></h3>
+
+    <script>
+        let rNum = 0; // random수가 지정될 변수 
+        let cnt = 0;
+
+        function createRandom(){
+            rNum = Math.floor(Math.random()*50)+1;
+            document.getElementById("printMsg").innerText = `컴퓨터가 랜덤 수를 생성했습니다.`
+        }
+
+        function compareNum(){  // 넘버 확인 함수
+            let MyNum = Number(document.getElementById("myCh").value);
+
+            if(cnt>10){ return document.getElementById("resultMsg").innerHTML=`횟수제한 초과! 꿑 `; }
+           
+            if(MyNum > 0 && MyNum < 50){
+                if(rNum== MyNum){
+                    cnt++;
+                    document.getElementById("resultMsg").innerHTML= `횟수 ${cnt} 정답입니다. 컴퓨터의 숫자는 ${rNum}였습니다.`;
+                }else if(rNum > MyNum){
+                    cnt++;
+                    document.getElementById("resultMsg").innerHTML= `횟수 ${cnt} UP`
+                }else{
+                    cnt++;
+                    document.getElementById("resultMsg").innerHTML= `횟수 ${cnt} down`
+                }
+            }else{
+                document.getElementById("resultMsg").innerText=`1~50사이의 숫자만 가능합니다.`;
+            }
+        }
+
+
+        function compareNum2(){
+            if(cnt < 5 ){
+                document.getElementById("resultMsg").innerText = `횟수 ${cnt+1}`;
+                cnt++;
+
+                let MyNum = Number(document.getElementById("myCh").value);
+                if(MyNum > 0 && MyNum <= 50 ){
+                    // 삼항연산자 : (조건식) ?  참 : 거짓;
+                    document.getElementById("resultMsg").innerText += (rNum==MyNum) ? `정답입니다. 컴퓨터숫자 ${rNum}입니다.!!` :
+                    (rNum > MyNum) ? `UP` : `DOWN`;
+                }else{  // 범위에 벗어났을때
+                    document.getElementById("resultMsg").innerText=`1~50사이의 숫자만 가능합니다.`;
+                }
+            }else{
+                document.getElementById("resultMsg").innerText = `시도횟수 : ${cnt}회가 초기화되었습니다 끝~`
+            }
+        }
+
+
+    </script>
+    
+</body>
+</html>

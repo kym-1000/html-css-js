@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공지사항</title>
+    <script
+      src="https://kit.fontawesome.com/92e616dfba.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        color: white;
+      }
+
+      body {
+            /* 안넣으면 div 겹침 발생 */
+            padding-top: 10px;
+            background-color: #000;
+         }
+
+         .nav {
+            /* border: 3px solid pink; */
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+
+            padding: 0px 50px 0px 50px;
+
+            /* 상단 헤더 고정시 필요! */
+            z-index: 1;
+            position: fixed;
+            font-size: 20px;
+            width: 95%;
+         }
+         a {
+            text-decoration: none;
+            color: whitesmoke;
+         }
+
+         /* 로고,소개,스토어,커뮤니티 */
+         .leftBar {
+            display: flex;
+         }
+         .menu {
+            display: flex;
+            list-style: none;
+         }
+
+         .menu li {
+            margin-top: 16.5px;
+            padding: 5px 25px;
+         }
+
+         .menu li > a {
+            border-bottom: 3px solid rgba(99, 168, 0, 0);
+            transition: all 0.25s ease-in-out;
+         }
+         .menu li > a:hover {
+            border-bottom: 3px solid rgb(99, 168, 168);
+         }
+
+         .logo {
+            width: 80px;
+            height: 70px;
+            /* border: 3px solid pink; */
+         }
+
+         .logo i {
+            font-size: 55px;
+            padding-top: 4.5px;
+         }
+
+         .searchbox i {
+            font-size: 17px;
+         }
+
+         .searchbox input {
+            font-size: 20px;
+            width: 450px;
+            /* text-decoration: none; */
+            border-radius: 10px;
+            border-color: gray;
+            /* outline-style: none; */
+            color: whitesmoke;
+            transition: all 0.25s ease-in-out;
+         }
+
+         .searchbox input:hover {
+            background-color: rgba(85, 87, 90, 0.904);
+         }
+
+         .searchbox input:focus {
+            outline: none;
+         }
+
+         .searchbox {
+            /* border: 3px solid pink; */
+            margin-left: 260px;
+            width: 500px;
+         }
+
+         .login {
+            width: 30px;
+            /* border: 1px solid red; */
+            font-size: 24px;
+            margin-left: auto;
+         }
+
+         .login > a:hover {
+            font-size: 25px;
+            color: rgb(99, 168, 168);
+         }
+
+      html {
+        font-size: 10px;
+      }
+
+      ul,
+      li {
+        list-style: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .board_wrap {
+        width: 1000px;
+        margin: 100px auto;
+        background-color: rgb(46, 53, 49);
+        border: none;
+        border-radius: 5px;
+        padding: 50px;
+      }
+
+      .board_title {
+        margin-bottom: 30px;
+      }
+
+      .board_title strong {
+        font-size: 3rem;
+      }
+
+      .board_title p {
+        margin-top: 5px;
+        font-size: 1.4rem;
+      }
+
+      .board_list {
+        width: 100%;
+        border-top: 2px solid #000;
+      }
+
+      .board_list > div {
+        border-bottom: 1px solid #ddd;
+        font-size: 0;
+      }
+
+      .board_list > div.top {
+        border-bottom: 1px solid #999;
+      }
+
+      .board_list > div:last-child {
+        border-bottom: 1px solid #000;
+      }
+
+      .board_list > div > div {
+        display: inline-block;
+        padding: 15px 0;
+        text-align: center;
+        font-size: 1.4rem;
+      }
+
+      .board_list > div.top > div {
+        font-weight: 600;
+      }
+
+      .board_list .num {
+        width: 10%;
+      }
+
+      .board_list .title {
+        width: 60%;
+        text-align: left;
+      }
+
+      .board_list .top .title {
+        text-align: center;
+      }
+
+      .board_list .writer {
+        width: 10%;
+      }
+
+      .board_list .date {
+        width: 10%;
+      }
+
+      .board_list .count {
+        width: 10%;
+      }
+
+      .board_page {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 0;
+      }
+
+      .board_page a {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        box-sizing: border-box;
+        vertical-align: middle;
+        border: 1px solid #ddd;
+        border-left: 0;
+        line-height: 100%;
+      }
+
+      .board_page a.bt {
+        padding-top: 10px;
+        font-size: 1.2rem;
+        letter-spacing: -1px;
+      }
+
+      .board_page a.num {
+        padding-top: 9px;
+        font-size: 1.4rem;
+      }
+
+      .board_page a.num.on {
+        border-color: #000;
+        background: #000;
+        color: #fff;
+      }
+
+      .board_page a:first-child {
+        border-left: 1px solid #ddd;
+      }
+
+      .board_view {
+        width: 100%;
+        border-top: 2px solid #000;
+      }
+
+      .board_view .title {
+        padding: 20px 15px;
+        border-bottom: 1px dashed #ddd;
+        font-size: 2rem;
+      }
+
+      .board_view .info {
+        padding: 15px;
+        border-bottom: 1px solid #999;
+        font-size: 0;
+      }
+
+      .board_view .info dl {
+        position: relative;
+        display: inline-block;
+        padding: 0 20px;
+      }
+
+      .board_view .info dl:first-child {
+        padding-left: 0;
+      }
+
+      .board_view .info dl::before {
+        content: "";
+        position: absolute;
+        top: 1px;
+        left: 0;
+        display: block;
+        width: 1px;
+        height: 13px;
+        background: #ddd;
+      }
+
+      .board_view .info dl:first-child::before {
+        display: none;
+      }
+
+      .board_view .info dl dt,
+      .board_view .info dl dd {
+        display: inline-block;
+        font-size: 1.4rem;
+      }
+
+      .board_view .info dl dd {
+        margin-left: 10px;
+        color: #777;
+      }
+
+      .board_view .cont {
+        padding: 15px;
+        border-bottom: 1px solid #000;
+        line-height: 160%;
+        font-size: 1.4rem;
+      }
+
+      .board_write {
+        border-top: 2px solid #000;
+      }
+
+      .board_write .title,
+      .board_write .info {
+        padding: 15px;
+      }
+
+      .board_write .info {
+        border-top: 1px dashed #ddd;
+        border-bottom: 1px solid #000;
+        font-size: 0;
+      }
+
+      .board_write .title dl {
+        font-size: 0;
+      }
+
+      .board_write .info dl {
+        display: inline-block;
+        width: 50%;
+        vertical-align: middle;
+      }
+
+      .board_write .title dt,
+      .board_write .title dd,
+      .board_write .info dt,
+      .board_write .info dd {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 1.4rem;
+      }
+
+      .board_write .title dt,
+      .board_write .info dt {
+        width: 100px;
+      }
+
+      .board_write .title dd {
+        width: calc(100% - 100px);
+      }
+
+      .board_write .title input[type="text"],
+      .board_write .info input[type="text"],
+      .board_write .info input[type="password"] {
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      .board_write .title input[type="text"] {
+        width: 80%;
+      }
+
+      .board_write .cont {
+        border-bottom: 1px solid #000;
+      }
+
+      .board_write .cont textarea {
+        display: block;
+        width: 100%;
+        height: 300px;
+        padding: 15px;
+        box-sizing: border-box;
+        border: 0;
+        resize: vertical;
+      }
+
+      .bt_wrap {
+            text-align: center;
+            line-height: 100px;
+            height: 100px;
+      }
+
+      .bt_wrap .on{
+            color: white;
+            background-color:   green;
+            width: 100px;
+            height: 50px;
+            border: none;
+      }
+
+      .bt_wrap .on:hover{
+            color: black;
+            background-color: white;
+      }
+
+      .foot {
+
+        text-align: center;
+        width: 1000px;
+        height: 370px;
+        margin: auto;
+        padding-top: 20px;
+        font-size: 12px;
+        color: gray;
+        }
+
+        .foot-info>a{
+            color: gray;
+        }
+
+        .foot-icons {
+            display: flex;
+            
+            font-size: 20px;
+            padding-bottom: 10px;
+            
+            justify-content: center;
+        }   
+
+        .foot-icon{
+            
+            width: 100px;
+            
+        }
+
+        .foot-icon:hover {
+            
+            font-size: 25px;
+            color: rgb(99, 168, 168);
+        }
+
+    </style>
+  </head>
+  <body>
+     <!-- 고정 헤드 -->
+
+     <div class="nav" id="navBar">
+        <div class="leftBar">
+           <div class="logo">
+              <a href="/6조웹사이트/메인-다시.html">
+                 <i class="fa-solid fa-gamepad"></i>
+              </a>
+           </div>
+
+           <div class="menu">
+              <div class="menus">
+                 <li><a href="#">소개</a></li>
+              </div>
+              <div class="menus">
+                 <li><a href="#">스토어</a></li>
+              </div>
+              <div class="menus">
+                 <li><a href="#">커뮤니티</a></li>
+              </div>
+           </div>
+        </div>
+
+        <!-- <form action="팝업창.html"> -->
+        <div class="searchbox">
+           <i class="fa-solid fa-magnifying-glass"></i>
+           <input type="text" placeholder="STORE SEARCH" id="searchWord" onkeyup="search()" />
+        </div>
+        <!-- </form> -->
+
+        <div class="login">
+           <a href="">
+              <i class="fa-regular fa-circle-user"></i>
+           </a>
+        </div>
+     </div>
+
+    <div class="board_wrap">
+      <div class="board_title">
+        <strong>글쓰기</strong>
+        <p>게임 관련 이야기만 합시다!</p>
+      </div>
+      <!--  -->
+      <div class="board_write_wrap">
+        <div class="board_write">
+          <form action="게시판.html">
+            <div class="title">
+              <dl>
+                <dt>제목</dt>
+                <dd>
+                  <input
+                    type="text"
+                    type="submit"
+                    placeholder="제목을 입력해주세요"
+                    id="제목임"
+                    required
+                    maxlength="30"
+                    style="color: #000;"
+                  />
+                </dd>
+              </dl>
+            </div>
+            <div class="info">
+              <dl>
+                <dt>글쓴이</dt>
+                <dd>
+                  <input
+                    type="text"
+                    placeholder="작성자이름을 입력해주세요"
+                    id="글쓴이임"
+                    required
+                    style="color: #000;"
+                  />
+                </dd>
+              </dl>
+              <dl>
+                <dt>비밀번호</dt>
+                <dd>
+                  <input
+                    type="password"
+                    placeholder="비밀번호를 입력해주세요"
+                    id="비밀번호임"
+                    required
+                    maxlength="5"
+                    style="color: #000;"
+                  />
+                </dd>
+              </dl>
+            </div>
+            <div class="cont">
+              <textarea
+                placeholder="내용을 입력해주세요"
+                id="내용임"
+                required
+                minlength="10"
+                style="color: #000;"
+              ></textarea>
+            </div>
+            <div class="bt_wrap">
+                <button type="submit" id="등록버튼" class="on">등록</button>
+                <button type="button" onclick="location.href='게시판.html'" id="취소버튼"  class="on">취소</button>
+              </form>
+            </div>
+        </div>
+      </div>
+    </div>
+
+     <!-- 하단 -->
+     <div class="foot">
+        <div class="foot-icons">
+            <div>
+                <a href="http://www.youtube.com"> <i class="fa-brands fa-youtube foot-icon"></i></a>
+            </div>
+            <div>
+                <a href="https://ko-kr.facebook.com/"><i class="fa-brands fa-facebook foot-icon"></i></a>
+            </div>
+            <div>
+                <a href="https://www.instagram.com/t"><i class="fa-brands fa-instagram foot-icon"></i></a>
+            </div>
+            <div>
+                <a href="https://twitter.com/"><i class="fa-brands fa-twitter foot-icon"></i></a>
+            </div>
+        </div>
+        <hr>
+        <p class="foot-info"><br>
+            <a href="#">인재채용</a> | <a href="#">회사소개</a> | <a href="#">고객지원</href=> | <a href="#">문의 등록</a> | <a
+                    href="#">보도자료</a> | <a href="#">API</a>
+                <br><br>
+                지금 바로 즐겨보세요 <a href="#-login or Main">Sixmans-Team
+            </a>
+        </p>
+
+        <pre class="foot-info">
+            <!-- 2022 Sixmans-Team, Inc. 모든 권리는 어딘가에 있습니다.
+            여기서 언급된 다른 모든 
+            <b>상표</b>는 각 소유권자들의 자산입니다. -->
+            <!-- Sixmans-Team -->
+            주소: 인천광역시 남동구 인주대로 593 엔타스빌딩 12층
+            대표 번호: 2588-2588 | 팩스 번호: (032)812-1246 | 이메일 Sixmans-Teamsuppot@ezen.co.kr
+            사업자 등록 번호:516-86-00232 | 대표 : DongEun-JO | 개인정보 보호책임자:6조 전체
+       
+            © 2022, Sixmans-Team, Inc. All Rights Reserved. sixmans, Sixmans-Team, Sixmans-Team 로고, Fortnite, Fortnite 로고, Unreal,
+            Unreal Engine, Unreal Engine 로고, Unreal Tournament, Unreal Tournament 로고의 모든 저작권은 Sixmans-Team, Inc.에 있으며, 이는 미국 및
+            그 외 국가에 모두 해당됩니다. 기타 브랜드 또는 제품 이름은 해당 소유자의 상표입니다. 미국 외 거래는 Sixmans-Team International, S.à r.l.을 통해 이뤄집니다.
+            
+            <!-- 개인정보 처리방침|법률 관련 문서|이용 약관|쿠키정보 처리방침|쿠키 설정 -->
+        </pre>
+    </div>
+
+    <script>
+      // for문을 통하여 로컬스토리지의 최대 키값을 찾고 변수 max에 저장 
+      // 스토리지에 아무것도 없을경우 맥스는 0 즉 1번스토리지부터 시작
+      let max = 0;
+      for (let i = 0; i < localStorage.length; i++) {
+        let tmp = parseInt(window.localStorage.key(i).substring(0, 1));
+        if (tmp > max) {
+          max = tmp;
+        }
+      }
+
+      // 각 내용을 입력받고 변수에 저장후 객체에 다시 저장 
+      // 날짜는 함수를 따로 만들어 작성한 날짜로 저장 조회수는 0부터 시작 
+      // 로컬스토리지에 아까 받은 맥스다음값을 키값으로 지정
+      // 밸류값에는 객체를 문자열 형식으로 저장 (문자열형식으로 저장 안할 경우 제대로 저장안됨)
+      function sub(event) {
+        let cnt = 0;
+        let title1 = document.getElementById("제목임").value;
+        let text1 = document.getElementById("내용임").value;
+        let name = document.getElementById("글쓴이임").value;
+        let password1 = document.getElementById("비밀번호임").value;
+        let obj = {
+          title: title1,
+          cont: text1,
+          writer: name,
+          pwd: password1,
+          today: today(),
+          cnt: cnt,
+        };
+        localStorage.setItem(`${++max}스토리지`, `${JSON.stringify(obj)}`);
+        let del = `${max}스토리지`;
+        check(title1, text1, name, password1, del);
+      }
+      
+      // 저장값이 아무것도 없거나 범위를 벗어날 경우  체크 함수를 통하여
+      // 확인후 그 스토리지를 지움 (다시입력할수있도록)
+      function check(title1, text1, name, password1, del) {
+        if (title1.length > 30 || title1.length == 0) {
+          wl.removeItem(del);
+        }
+        if (text1.length < 10 || text1.length == 0) {
+          wl.removeItem(del);
+        }
+        if (name.length == 0) {
+          wl.removeItem(del);
+        }
+        if (password1.length > 5 || password1.length == 0) {
+          wl.removeItem(del);
+        }
+      }
+
+      // 오늘 날짜를 스트링 형식 00-00-00 각각의 2자리로 출력함
+      function today() {
+        let toke = new Date();
+        let year = String(toke.getFullYear()).padStart(2, "0");
+        let Month = String(toke.getMonth() + 1).padStart(2, "0");
+        let Day = String(toke.getDate()).padStart(2, "0");
+        let toda = `${year}.${Month}.${Day}`;
+        return toda;
+      }
+
+      const wl = window.localStorage;
+      const 등록버튼 = document.querySelector("#등록버튼");
+      등록버튼.addEventListener("click", sub);
+
+    </script>
+  </body>
+</html>

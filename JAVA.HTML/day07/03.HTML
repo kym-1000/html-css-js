@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문 반복문</title>
+    <!--
+        조건문 (if ,switch)
+    -->
+</head>
+<body>
+    <h1>
+        if(조건절) {code;}
+        조건절은 true/false 로 구분되는 문이 와야함.
+    </h1>
+    <h3>
+        다중 조건문 : else if(조건절) {} 사용.
+    </h3>
+    <h3>
+        switch(변수/식){
+            case 값1 : 구문 ; break;
+            case 값1 : 구문 ; break;
+            case 값1 : 구문 ; break;
+            default: 구문
+        }
+    </h3>
+    <h3>
+        반복문 : for,while , do while 
+        자바에서 한 것과 같은 형태로 사용가능
+    </h3>
+    <h3>
+        while(값){
+            code;
+        }
+        값 : true 일때 반복 , 조건이 항상 트루면 무한루프 
+
+    </h3>
+
+    <h3>구구단 출력</h3>
+    <button type="button" onclick="gugu()">구구단 출력하기</button>
+    <div class="gugudan"></div>
+    <script>
+        let count = 0;
+        while(count<10){
+            console.log(`현재 count : ${count}`);
+            count++;
+        }
+
+        function gugu(){
+            let dan = 2;
+            // let str = `${dan} 단 <br>`;
+            while(dan <10){
+                let incre = 1;
+                while(incre <10){
+                    document.write(`${dan} * ${incre} =  ${dan*incre} `);
+                    incre++;
+                }
+                dan++;
+                
+            }
+            
+
+        }
+
+
+        
+    </script>
+</body>
+</html>

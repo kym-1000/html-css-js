@@ -1,0 +1,25 @@
+// if (confirm("정말 삭제하시겠습니까?")) {
+    //    let del = window.localStorage.key(i);
+    //    window.localStorage.removeItem(del);
+    // } else {
+    //    event.preventDefault();
+    //    Swal.fire('삭제가 취소되었습니다.');
+    // }
+
+
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Poof! Your imaginary file has been deleted!", {
+            icon: "success",
+          });
+        } else {
+          swal("Your imaginary file is safe!");
+        }
+      });

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        1~45까지 중복되지 않은 숫자 6개가 랜덤으로 출력 순서대로 출력
+        set 객체 사용
+    </h1>
+    <button type="button" id="makeRandom" onclick="ran()">랜덤번호 6개 출력</button>
+    <button type="button" id="makeRandom" onclick="ran1()">당첨번호 7개 출력</button> 
+    <button type="button" id="makeRandom" onclick="ck()">당첨확인</button> 
+
+    <br>
+    당신의 번호
+    <h1 id="printNum"></h1> <br>
+    당첨번호
+    <h1 id="printNum1"></h1> <br>
+    당신의 등수는?
+    <h1 id="printNum2"></h1> <br>
+
+
+
+
+    <script>
+        const arr1 = [];
+        const arr2 = [];
+
+        function ran(){
+            const Set1 = new Set();
+    
+            for(let i =0; Set1.size<6; i++){
+                Set1.add(Math.floor(Math.random()*8)+1);
+            }
+    
+            console.log(Set1);
+    
+
+            for(const r of Set1){
+                arr1.push(r);
+            }
+
+            document.getElementById("printNum").innerText = 
+            arr1.sort(function(a,b){return a-b});
+
+        }
+
+        function ran1(){
+           const Set2 = new Set();
+    
+            for(let i =0; Set2.size<7; i++){
+                Set2.add(Math.floor(Math.random()*8)+1);
+            }
+    
+            console.log(Set2);
+    
+
+            for(const r of Set2){
+                arr2.push(r);
+            }
+
+            document.getElementById("printNum1").innerText = 
+            arr2.sort(function(a,b){return a-b});
+
+            // 배열 내용 삭제 
+            
+    
+        }
+
+        function ck(){
+            let cnt =0;
+            for(let i=0; i<arr1.length; i++ ){
+                for(let j=0; j<arr2.length;j++){
+                    if(arr1[i]==arr2[j]){
+                        cnt++;
+                    }
+                }
+                
+            }
+
+            
+
+            switch(cnt){
+                case 7 : document.getElementById("printNum2").innerText = `1등!`; break;
+                case 6 : document.getElementById("printNum2").innerText = `2등!`; break;
+                case 5 : document.getElementById("printNum2").innerText = `3등!`; break;
+                case 4 : document.getElementById("printNum2").innerText = `4등!`; break;
+                case 3 : document.getElementById("printNum2").innerText = `5등!`; break;
+                case 2 : case 1 : case 0 : document.getElementById("printNum2").innerText = `꽝!`; break;
+                
+            }
+        }
+       
+
+
+    </script>
+
+
+    
+</body>
+</html>

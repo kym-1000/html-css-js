@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/92e616dfba.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <script src="https://kit.fontawesome.com/92e616dfba.js" crossorigin="anonymous"></script>
+    <title>소개</title>
+  </head>
+  <style>
+    *{
+        text-align: center;
+        transition: all 0.5s linear;
+        /* background-color: rgb(9, 42, 80); */
+        /* background-color: #1d1d1b; */
+        background-color: #000000;
+        color: white;     
+    }
+    .nav {
+    /* border: 3px solid pink; */
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    background-color: transparent;
+    padding: 0px 50px 0px 50px;
+
+    /* 상단 헤더 고정시 필요! */
+    z-index: 1;    
+    position: fixed;
+
+    width: 100%;
+}
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+/* 로고,소개,스토어,커뮤니티 */
+.leftBar{
+    display: flex;
+}
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+
+.menu li {
+    margin-top: 16.5px;
+    padding: 5px 25px;
+  
+}
+
+.menu li>a{
+    border-bottom: 3px solid rgba(99, 168, 0,0);
+    transition: all 0.25s ease-in-out;
+}
+.menu li>a:hover{
+    border-bottom: 3px solid rgb(99, 168, 168);
+}
+
+
+.logo {
+    width: 80px;
+    height: 70px;
+    /* border: 3px solid pink; */
+}
+
+.logo i {
+    font-size: 55px;
+    padding-top: 4.5px;
+}
+
+.searchbox i {
+    font-size: 17px;    
+}
+
+.searchbox input {
+    font-size: 20px;
+    width: 450px;
+    /* text-decoration: none; */
+    border-radius: 10px;
+    border-color: gray;
+    /* outline-style: none; */
+    color: whitesmoke;  
+    transition: all 0.25s ease-in-out;
+}
+
+.searchbox input:hover{
+    background-color:rgba(85, 87, 90, 0.904);
+}
+
+.searchbox input:focus{
+    outline: none;
+}
+
+.searchbox{
+    /* border: 3px solid pink; */
+    margin-left: 260px;
+    width: 500px;    
+}
+
+.login {
+    width: 30px;
+    /* border: 1px solid red; */
+    font-size: 24px;
+    margin-left: auto;
+}
+
+.login>a:hover{
+    font-size: 25px;
+    color: rgb(99, 168, 168);
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+.scroll{
+    width: 100%;
+    /* height: 100vh; */
+    /* scroll-snap-align: start; */
+}
+
+.headder{
+        /* background-image:url("https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt171bbe0d1d32f59d/5f5a8c7220552e47a3e1272b/AboutHeader_BG_Large.webp?auto=webp&format=pjpg"); */
+        /* background-image: url(/image/제목1.png); */
+        /* background-image: url(https://static.wixstatic.com/media/ea71bb_26b74ffd432b4a4890727cd91b6f60e9f000.jpg/v1/fill/w_980,h_838,al_c,q_85,usm_0.33_1.00_0.00,enc_auto/ea71bb_26b74ffd432b4a4890727cd91b6f60e9f000.jpg); */
+        width: 100%;
+        height: 700px;
+        position: relative;
+        
+        /* background-position: center; */
+        /* background-repeat: repeat; */
+        /* text-align: center; */
+        /* box-sizing: content-box; */
+    }
+    .headder video{
+        /* position: static; */
+        
+        /* display: grid; */
+        width: 100%;
+        height: 1050px;
+        /* overflow: hidden; */
+    }
+    h1{
+        font-size: 90px;
+        position: absolute;
+        /* vertical-align: baseline; */
+        text-align: center;
+        top: 80%;
+        margin-left: 10%;
+        vertical-align: 0 auto;
+        background-color: transparent;
+        /* overflow: hidden; */
+    }
+    .iframe{
+        vertical-align: 0 auto;
+        margin-top: 30%;
+        width: 70%;
+        margin-bottom: 100px;
+        text-align: left;
+      height: 700px;
+      overflow: hidden;
+    }
+    .iframeText{
+        width: 50%;
+        display: inline-block;
+        position: static;
+    }
+    h2{
+        letter-spacing: normal;
+        margin-top: 40px;
+    }
+    h3{
+        margin: 100px;
+    }
+    .img{
+        width: 232px;
+        height: 400px;
+        /* background: url(/image/조별\(옵치\).png); */
+        background-size: cover;
+        box-sizing: content-box;
+        /* border: ; */
+        display: inline-block;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        margin-left: 50px;
+    }
+    .one {background-image: url(/image/fps1.jpg);
+        background-position: left;       
+        background-size: cover;
+    }
+    .two{
+        background-image: url(/image/rpg1.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    .three{
+        background-image: url(/image/fps3.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+    .four{
+        background-image: url(/image/fps6.jfif);
+        background-position: center;
+        background-size: cover;
+    }
+    .five{
+        background-image: url(/image/육성4.jpg);
+        background-position: center;
+        background-size: cover;
+    }
+        .text{
+            opacity: 0;
+            
+        }
+        .img:hover .text{
+            opacity: 0.7; text-align: center; color:#ffffff;
+            animation: vibration 0.1s infinite;
+        }
+        .textPTag {
+            margin-top: 50%;
+        width: 100%;
+    }
+    iframe{
+        pointer-events: none;
+    }
+    .foot {
+    width: 1000px;
+    height: 370px;
+    margin: auto;
+    padding-top: 20px;
+    font-size: 12px;
+    color: gray;
+}
+
+.foot-info>a{
+    color: gray;
+}
+
+.foot-icons {
+    display: flex;
+    
+    font-size: 20px;
+    padding-bottom: 10px;
+    
+    justify-content: center;
+}   
+
+.foot-icon{
+    
+    width: 100px;
+    
+}
+
+.foot-icon:hover {
+    
+    font-size: 25px;
+    color: rgb(99, 168, 168);
+}
+  </style>
+  <body>
+   <!-- 고정 헤드 -->
+
+   <div class="nav" id="navBar">
+    <div class="leftBar">
+
+        <div class="logo">
+            <a href="/6조웹사이트/메인-다시.html">
+                <i class="fa-solid fa-gamepad"></i>
+            </a>
+        </div>
+
+        <div class="menu">
+            <div class="menus">
+                <li><a href="#">소개</a></li>
+            </div>
+            <div class="menus">
+                <li><a href="store.html">스토어</a></li>
+            </div>
+            <div class="menus">
+                <li><a href="/세프/목록.html">커뮤니티</a></li>
+            </div>
+        </div>
+    </div>
+
+    <!-- <form action="팝업창.html"> -->
+        <div class="searchbox">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="STORE SEARCH" id="searchWord" onkeyup="search()">
+        </div>
+    <!-- </form> -->
+
+    <div class="login">
+        <a href="">
+            <i class="fa-regular fa-circle-user"></i>
+        </a>
+    </div>
+</div>
+    <div class="container">
+    <div class="scroll headder">
+        <video src="https://video.wixstatic.com/video/ea71bb_26b74ffd432b4a4890727cd91b6f60e9/1080p/mp4/file.mp4" autoplay loop muted></video>
+        <h1>E-Sports의 모든 정보를 <br> 드립니다.</h1>
+    </div>
+    <video      
+    src="/image/KakaoTalk_20221115_123119744.mp4"
+      class="scroll iframe" loop muted autoplay="autoplay" ></video><hr></video>
+      <div class="iframeText"><p><h2>Sixth mans 란?</h2>
+    Sixth mans 란 농구에서 5명의 주전선수가 체력이 떨어졌거나 부상을 당할 경우  가장 먼저 투입되는 선수란 뜻으로 <br>
+    저희 6조는 아직 부족한 실력으로 주전으로 뛸 수 없으나 후보 중 가장 먼저 투입될 수 있는 기량을 갖고있는 팀으로 거듭나도록 노력하는 팀으로 이 이름을 짓게 되었습니다.</p></div>
+      
+    <div class="scroll body">
+        <br>
+        <h2>우리 팀의 목표</h2>
+        
+        <div class="img one">
+        <div class="text">
+            <p class="textPTag"><font size=5>첫번째 : 누구보다 정확한 정보 전달을 하겠습니다.</font></p>
+        </div>
+        </div>
+        <div class="img two">
+        <div class="text ">
+            <p class="textPTag"><font size=5>두번째 : 흥미를 가질 수 있는 게임을 개발하겠습니다.</font></p>
+        </div>
+        </div>
+        <div class="img three">
+        <div class="text ">
+            <p class="textPTag"><font size=5>세번째 : 질리지 않는 게임을 개발하겠습니다.</font></p>
+        </div>
+        </div>
+        <div class="img four">
+        <div class="text">
+            <p class="textPTag"><font size=5>네번째 : 동해물과 백두산이 마르고 닳도록</font></p>
+        </div>
+        </div>
+        <div class="img five">
+        <div class="text">
+            <p class="textPTag"><font size=5>다섯번째 : 하느님이 보우하사 우리나라만세</font></p>
+        </div>
+        </div>
+
+        <hr>
+    </div>
+     <!-- 하단 -->
+     <div class="foot">
+        <div class="foot-icons">
+            <div>
+                <a href="http://www.youtube.com"> <i class="fa-brands fa-youtube foot-icon"></i></a>
+            </div>
+            <div>
+                <a href="https://ko-kr.facebook.com/"><i class="fa-brands fa-facebook foot-icon"></i></a>
+            </div>
+            <div>
+                <a href="https://www.instagram.com/t"><i class="fa-brands fa-instagram foot-icon"></i></a>
+            </div>
+            <div>
+                <a href="https://twitter.com/"><i class="fa-brands fa-twitter foot-icon"></i></a>
+            </div>
+        </div>
+        <hr>
+        <p class="foot-info"><br>
+            <a href="#">인재채용</a> | <a href="#">회사소개</a> | <a href="#">고객지원</href=> | <a href="#">문의 등록</a> | <a
+                    href="#">보도자료</a> | <a href="#">API</a>
+                <br><br>
+                지금 바로 즐겨보세요 <a href="#-login or Main">Sixthmans-Team
+            </a>
+        </p>
+
+        <pre class="foot-info">
+            <!-- 2022 Sixthmans-Team, Inc. 모든 권리는 어딘가에 있습니다.
+            여기서 언급된 다른 모든 
+            <b>상표</b>는 각 소유권자들의 자산입니다. -->
+            <!-- Sixthmans-Team -->
+            주소: 인천광역시 남동구 인주대로 593 엔타스빌딩 12층
+            대표 번호: 2588-2588 | 팩스 번호: (032)812-1246 | 이메일 Sixthmans-Teamsuppot@ezen.co.kr
+            사업자 등록 번호:516-86-00232 | 대표 : DongEun-JO | 개인정보 보호책임자:6조 전체
+       
+            © 2022, Sixthmans-Team, Inc. All Rights Reserved. Sixthmans, Sixthmans-Team, Sixthmans-Team 로고, Fortnite, Fortnite 로고, Unreal,
+            Unreal Engine, Unreal Engine 로고, Unreal Tournament, Unreal Tournament 로고의 모든 저작권은 Sixthmans-Team, Inc.에 있으며, 이는 미국 및
+            그 외 국가에 모두 해당됩니다. 기타 브랜드 또는 제품 이름은 해당 소유자의 상표입니다. 미국 외 거래는 Sixthmans-Team International, S.à r.l.을 통해 이뤄집니다.
+            
+            <!-- 개인정보 처리방침|법률 관련 문서|이용 약관|쿠키정보 처리방침|쿠키 설정 -->
+        </pre>
+    </div>
+</div>
+  </body>
+</html>

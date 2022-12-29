@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>잎바꾸기</title>
+</head>
+<body>
+
+
+<hr />
+
+<img onmouseover="changeGreen(this)" onmouseout="changeBrown(this)" src="/img3/boy.png"/>
+
+<script>
+  function changeGreen(e) {
+    e.setAttribute('src', '/img3/girl.png');
+  }
+  
+  function changeBrown(e) {
+    e.setAttribute('src', '/img3/boy.png');
+  }
+</script>
+</body>
+</html>

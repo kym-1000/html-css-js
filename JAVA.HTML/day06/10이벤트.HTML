@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <fieldset>
+            <legend>로그인</legend>
+            ID : <input type="text" id="uesrid"><br>
+            PW : <input type="password" id="userpwd"><br>
+            birth : <input type="date" id="birth"><br>
+            PIN :   <input type="number" id="pin"><br>
+            <button type="button" onclick="clickEevent()">전송</button>
+            <button type="button" onclick="makeList()">전송</button>
+        </fieldset>
+        
+    </form>
+    <h3 id="info"></h3>
+    <script>
+        function clickEevent(){
+            // value 는 모두 String 처리됨
+            let uesrid = document.getElementById("uesrid").value;
+            let userpwd = document.getElementById("userpwd").value;
+            let birth = document.getElementById("birth").value;
+            let pin = document.getElementById("pin").value;
+            document.getElementById("info").innerText = `${typeof uesrid} : ${uesrid}`;
+            document.getElementById("info").innerText += `${typeof userpwd} : ${userpwd}`;
+            document.getElementById("info").innerText += `${typeof birth} : ${birth}`;
+            document.getElementById("info").innerText += `${typeof pin} : ${pin}`;
+        }
+
+        <h3 id="ol"></h3>
+        function makeList(){
+            let uesrid = document.getElementById("uesrid").value;
+            let userpwd = document.getElementById("userpwd").value;
+            let birth = document.getElementById("birth").value;
+            let pin = document.getElementById("pin").value;
+
+            birth = new date(birth);
+            console.log(birth);
+            console.log(typeof birth);
+            pin = parseInt(pin);
+            let ol = document.getElementById("ol");
+            ol.innerHTML = `<li> ${typeof uesrid } : ${uesrid} </li>`;
+            ol.innerHTML += `<li> ${typeof userpwd } : ${userpwd} </li>`;
+            ol.innerHTML += `<li> ${typeof birth } : ${birth} </li>`;
+            ol.innerHTML += `<li> ${typeof pin } : ${pin} </li>`;
+            
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        li tag 추가하는 예제 
+    </h1>
+    <button type="button" id="btn1">Li tag한번에 추가하기</button>
+    <button type="button" id="btn2">Li tag하나씩 추가하기</button>
+
+    <button type="button" id="btn3">리셋</button>
+
+    <ul id="ul"></ul>
+    <hr>
+    <ol id="ol"></oli>
+    <hr>  
+   
+    
+    <script>
+
+        let str = ["java","css","HTML","JS"];
+        let cnt = 0;
+
+        function outputul(){
+            let list = "";
+            for(let i=0 ; i<str.length;i++){
+                list += `● ${str[i]} <br>` ;
+            }
+            document.querySelector("#ul").innerHTML = list;
+        }
+
+        function outputol(){
+            document.querySelector("#ol").innerHTML += `${cnt+1}. ${str[cnt++]} <br>` ;
+            if(cnt==4){
+                cnt = 0;
+            }
+        }
+
+        window.addEventListener("load", event => {
+        document.getElementById("btn3").onclick = function() {
+                location.reload(true);
+            }
+        });
+
+        document.querySelector("#btn1").addEventListener("click",outputul);
+        document.querySelector("#btn2").addEventListener("click",outputol);
+
+    </script>
+
+
+</body>
+</html>

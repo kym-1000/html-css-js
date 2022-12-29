@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Document</title>
+      <style>
+         @font-face {
+            font-family: AbrilFatface;
+            src: url(/font/AbrilFatface-Regular.ttf);
+         }
+
+         body {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: AbrilFatface;
+         }
+         .container {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(3, 3, 3, 0.209), rgba(0, 0, 0, 0.494)), url(/img2/pexels-roberto-nickson-2559941.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+         }
+
+         .container .header {
+            width: 90%;
+            height: 80px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding-top: 20px;
+         }
+
+         .container .header h1 a {
+            color: white;
+            text-decoration-line: none;
+         }
+         .nav a {
+            color: rgb(182, 181, 181);
+            float: left;
+            font-size: 18px;
+            text-decoration: none;
+         }
+
+         .hero {
+            margin: 0 auto;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+         }
+
+         .hero h2 {
+            font-size: 100px;
+            color: rgb(205, 203, 203);
+         }
+
+         .hero a {
+            font-size: 45px;
+            border: none;
+            border-radius: 5px;
+            color: rgb(212, 212, 212);
+            background-color: rgba(255, 255, 255, 0);
+            z-index: auto;
+            text-decoration-line: none;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="header">
+            <h1><a href="https://ic.ezenac.co.kr/">Design</a></h1>
+            <div class="nav">
+               <ul>
+                  <a href="https://ic.ezenac.co.kr/"><span>HOME &nbsp;&nbsp;</span></a>
+                  <a href="https://member.ezenac.co.kr/ezen/member/member_login.asp"><span>LOING IN &nbsp;&nbsp;</span></a>
+                  <a href="https://member.ezenac.co.kr/ezen/member/member_join.asp"><span>SIGN UP &nbsp;&nbsp;</span></a>
+                  <a href=""><span>BOARD &nbsp;&nbsp;</span></a>
+               </ul>
+            </div>
+         </div>
+         <div class="hero">
+            <h2>THE WORLD</h2>
+            <form><a href="https://ic.ezenac.co.kr/">towards the future</a> <br /><br /></form>
+         </div>
+      </div>
+   </body>
+</html>

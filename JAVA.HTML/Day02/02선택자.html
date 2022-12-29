@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자</title>
+
+    <!-- css 적용시 
+        선택자{
+            속성1 : 값1;
+            속성2 : 값2;
+        }
+        선택자(selector) : 요소를 선택하게 하는 이름 
+        선택자 종류
+        - id 선택자             # 아이디명 => 무조건 1개/0개
+        - 태그선택자            태그명 => 같은 이름을 가지는 모든 태그
+        - 클래스 선택자         .클래스명 => 같은 클래스명을 가지는 태그
+        - 가상 클래스 선택자    :가상클래스명
+            어떤 조건이나 상황에서 스타일을 적용하도록 만든 선택자
+            주로 앞에 다른 선택자가 오고 뒤에 가상클래스 선택자가 나옴.
+            :hover = 요소에 마우스를 올렸을때 적용 
+            :focus = 요소가 포커스를 받고 있을때 적용
+            :nth-child(a) / :nth-of-type(a) : a번쨰에 해당하는 요소
+                 :nth-child(a) : 부모 요소의 모든 자식 요소 중 n번째 요소
+                 :nth-of-type(a) : 부모 요소의 특정 자식 요소 중 n번째 요소
+                1 : 첫번째 요소
+                even : 짝수번쨰 요소 
+                odd : 홀수번째 요소
+                2n : 2의 배수, 3n 3의배수
+        
+        선택자 조합 
+        - 여러 선택자를 이용하여 요소를 선택
+        - 자식 관계
+            선택자1 > 선택자2 (div > input)
+            선택자1(부모요소) > 선택자2(자식요소)
+        - 자손 관계
+            선택자1 선택자2(div.hi , div#apple )
+            선택자1(조상 바로 위의 부모포함하는) 선택자2 (자식요소)
+        - 본인 : 선택자를 붙여서 사용
+            선택자1선택자2를 모두 만족하는 요소 선택 
+            조합시 순서를 잘 고려해야 함.
+        - 안되는 조합 
+            1. 띄어쓰기를 안하는 경우
+                .hidiv -> .hidiv라는 클래스명으로 인식 
+            2. 말이 안되는 경우
+                태그 선택자가 연속으로 오는 경우  pdiv -> pdiv라는 태그를 찾음 -> 에러
+                아이디 선택자가 연속으로 오는 경우 => #input#input2 => 한 요소에는 id 1개 
+        
+        선택자 우선순위 
+            - 아이디 > 클래스 > 태그
+            - 우선순위가 같은 경우 아래에 있는 내용이 적용
+    -->
+</head>
+    <style>
+        p{
+            color: aqua;
+        }
+
+        p:nth-child(2){
+            color: red;
+        }
+
+        .color{
+           color: blue; 
+        }
+
+        /*  아이디가 우선순위! */
+        #green{
+            color: green;
+        }
+
+         /*  기울림 */
+        body>p{
+            font-style: italic; 
+        }
+
+        /* div{
+            color: blueviolet;
+        }
+
+        .hi{
+            color :darkviolet;
+        } */
+
+        div.hi{
+            font-weight: 700;
+        }
+
+        p:hover{
+            font-weight: 700;
+        }
+
+        body>div:nth-of-type(1){
+            color: aqua;
+        }
+
+
+
+    </style>
+
+<body>
+    <p class="hi">안녕하세요 홍길동입니다.</p>
+    <p>안녕하세요 임꺽정입니다</p>
+    <p class="color" id="green">안녕하세요 유관순입니다</p>
+    <div class="hi">hihihi</div>
+    <div>안녕</div>
+    
+</body>
+</html>

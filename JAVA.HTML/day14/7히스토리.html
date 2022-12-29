@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        브라우저가 저장하고 있는 방문페이지의 기록을 관리하는 객체
+    </h1>
+
+    <ul>
+        <li>
+            브라우저의 설정에서 방문한 페이지의 기록을 지우면 모두 지워진다.
+        </li>
+        <li>
+            브라우저의 저장소를 기반으로 하기 때문에 보안이슈로 접근방어를 해놓은 경우도 있다
+        </li>
+    </ul>
+
+    <button type="button" id="back">back</button>
+    <button type="button" id="forward">foward</button>
+    <input type="text" id="n"> <button type="button" id="go">go(n)</button>
+
+    <script>
+        document.getElementById("back").onclick= ()=>{
+            history.back();
+        }
+
+        document.getElementById("forward").onclick= ()=>{
+            history.forward();
+        }
+
+        document.getElementById("go").onclick= ()=>{
+            let num = parseInt(document.getElementById("n").value);
+            history.go(num);
+        }
+
+    </script>
+
+
+
+    
+</body>
+</html>

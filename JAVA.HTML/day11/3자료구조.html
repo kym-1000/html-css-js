@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        자바스크립트에서 데이터 타입 확장 개념으로 집합데이터를 다룰수 있는 객체를 만듬
+    </h1>
+
+    <ul>
+        <li>
+            set 안의 중복데이터는 허용하지 않음 : 중복 검사 후 존재하는 데이터의 최초의 데이터만 저장
+        </li>
+        <li>
+            set() : 파라미터로는 주로 배열을 사용한다 => 배열의 인덱스와 값을 활용하여 집합 데이터를 만듬
+        </li>
+        <li>
+            set의 전용 메서드 들이 존재 
+        </li>
+        <li>
+            add : 값을 추가 : setName.add(값)
+        </li>
+        <li>
+            size : 크기를 알려줌 : setName.size; size()이 아님
+        </li>
+        <li>
+            has : 값이 있는지 체크  : setName.has(값) 있으면 트루 없으면 펄스 
+        </li>
+        <li>
+            delete : 값을 삭제 : setName.delete(값) 성공하면 트루 없으면 펄스 반환
+        </li>
+        <li>
+            clear : 모두 삭제 setName.clear()  
+        </li>
+        <li>
+            forEach(v,i,self(set)) : 인덱스 = 밸류 (set은 키가 별도로 존재하지않음)
+        </li>
+        <li>
+            const a = new set([1,2,3]) : 배열 => set
+        </li>
+        <li>
+            const b = [...a] : set => 배열
+        </li>
+        <li>
+            setName.key(), setName.values(), setName.entries 
+            리턴타입이 setIterator : forEach 순환x
+        </li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script>
+        const testSet = new Set(["html","css","js"]);
+        console.log(testSet);
+        testSet.add("리액트");
+        console.log(testSet);
+        console.log(testSet.size);
+        testSet.delete("리액트");
+        console.log(testSet);
+        console.log(testSet.has("리액트")); 
+        console.log(testSet.has("js")); 
+
+        testSet.forEach(function(value,index,self){
+            console.log(value,index,self);
+        });
+        console.log(testSet.keys());
+        console.log(testSet.values());
+        console.log(testSet.entries());
+
+        for(const iter of testSet.entries()){
+            iter.forEach(function(v,i,s){
+                console.log(i,v);
+            })
+        }
+
+        testSet.clear();
+        console.log(testSet.size);
+
+
+        // 새로운 set을 생성하고,
+        // 10,1,9,6,test,[1,2,3] 추가
+
+
+        const NewSet = new Set();
+        NewSet.add(10);
+        NewSet.add(1);
+        NewSet.add(9);
+        NewSet.add(6);
+        NewSet.add("test");
+        NewSet.add([1,2,3]);
+        let car = {
+            a:1,
+            b:2,
+        }
+        NewSet.add(car);
+        NewSet.add({a:3,b:4})
+        NewSet.forEach(function(value){
+            console.log("test1 : ", value);
+        });
+
+        for(let item of NewSet){
+            console.log("test2 :", item);
+        }
+
+    </script>
+    
+</body>
+</html>

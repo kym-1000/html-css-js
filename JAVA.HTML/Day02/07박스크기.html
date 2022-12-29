@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스크기 box-sizing</title>
+    <!--
+        margin  : 바깥쪽 여백
+        border : 선 굵기
+        padding : 안쪽여백
+        content : 컨텐츠 크기
+        box-sizing : 박스크기 설정
+            - border-box : 컨텐츠크기 + padding + border = 100px
+                왼쪽패딩 + 오른쪽패딩 + 왼쪽 테두리 +오른쪽 테두리 + 컨텐츠의 가로 = 100px
+                20+20+1+1+58 = 100px
+            - content-box : 컨텐츠 크기 = 100px
+                20+20+1+1+100 = 142px
+    -->
+
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        .box1{
+            box-sizing: border-box;
+        }
+        .box2{
+            box-sizing: content-box;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">hello</div>
+    <div class="box2">hello</div>
+</body>
+</html>
